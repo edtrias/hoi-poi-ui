@@ -18,6 +18,7 @@ const types = {
     integer: 'text',
     decimal: 'text',
     title: 'text',
+    select: 'text',
 };
 
 const Input = memo(
@@ -223,7 +224,7 @@ const Input = memo(
             copyValue,
         ]);
 
-        const shouldSeparate = isCopyable || isReadOnly || postComponent;
+        const shouldSeparate = isCopyable || isReadOnly || postComponent || type === 'select';
 
         let newPostComponent = [];
 
@@ -266,6 +267,18 @@ const Input = memo(
                 </div>,
             );
         }
+
+        // if (type === 'select') {
+        //     newPostComponent.push(
+        //         <div
+        //             key="select"
+        //             className={classes.postComponentSelect}
+        //             {...override.postComponentSelect}
+        //         >
+        //             <Icon name="arrowDropDown" size="medium" />
+        //         </div>,
+        //     );
+        // }
 
         if (postComponent) {
             newPostComponent.push(

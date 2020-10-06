@@ -29,6 +29,7 @@ export { default as ProgressBar } from './components/general/ProgressBar';
 export { default as Carousel } from './components/general/Carousel';
 
 export { default as Input } from './components/forms/Input';
+export { default as Select } from './components/forms/Select';
 
 export { default as Form } from './components/oldForms/Form';
 export { default as Section } from './components/oldForms/Section';
@@ -38,7 +39,7 @@ export { default as Label } from './components/oldForms/Label';
 // export { default as Input } from './components/oldForms/Input';
 export { default as InputGroup } from './components/oldForms/InputGroup';
 export { default as TextArea } from './components/oldForms/TextArea';
-export { default as Select } from './components/oldForms/Select';
+// export { default as Select } from './components/oldForms/Select';
 export { default as SelectButton } from './components/oldForms/SelectButton';
 export { default as Slider } from './components/oldForms/Slider';
 export { default as Radio } from './components/oldForms/Radio';

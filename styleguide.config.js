@@ -37,7 +37,10 @@ module.exports = {
             name: 'Forms',
             description: '',
             sectionDepth: 0,
-            components: ['./src/components/forms/Input/index.jsx'],
+            components: [
+                './src/components/forms/Input/index.jsx',
+                './src/components/forms/Select/index.jsx',
+            ],
         },
         {
             name: 'OldForms',

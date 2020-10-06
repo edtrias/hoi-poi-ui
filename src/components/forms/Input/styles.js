@@ -202,6 +202,7 @@ export default (theme) => {
         },
         postComponentReadOnly: {},
         postComponentCopy: {},
+        postComponentSelect: {},
         custom: {
             '& $formControl': {
                 '&::before': {

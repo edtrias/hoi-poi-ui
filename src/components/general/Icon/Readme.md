@@ -154,6 +154,10 @@ Navigation:
 <span> </span>
 <Icon name="closeSmall"/>
 <span> </span>
+<Icon name="arrowDropDown"/>
+<span> </span>
+<Icon name="arrowDropUp"/>
+<span> </span>
 ```
 
 Content:
