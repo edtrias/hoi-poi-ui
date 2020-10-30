@@ -463,7 +463,6 @@ const onChange = (value) => setState({ value });
         options={options}
         value={state.value}
         isMulti={true}
-        isClearable
         isFullWidth={true}
     />
 </div>;

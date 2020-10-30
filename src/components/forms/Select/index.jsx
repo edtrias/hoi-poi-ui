@@ -249,8 +249,19 @@ const Select = memo(
             [override],
         );
 
+        const singleIsClearable = useMemo(() => {
+            if (isRequired) return false;
+            else if (typeof isClearable === 'boolean') return isClearable;
+            else return true;
+        }, [isRequired, isClearable]);
+
+        const multiIsClearable = useMemo(() => {
+            if (typeof isClearable === 'boolean') return isClearable;
+            else return false;
+        }, [isClearable]);
+
         const indicatorSeparatorStyles = useMemo(() => {
-            if (isRequired && !isMulti) {
+            if ((!isMulti && !singleIsClearable) || !multiIsClearable) {
                 return newStyles.indicatorSeparatorHidden;
             } else if (
                 !isReadOnly &&
@@ -259,7 +270,7 @@ const Select = memo(
             ) {
                 return newStyles.indicatorSeparator;
             } else return newStyles.indicatorSeparatorHidden;
-        }, [isReadOnly, isMulti, newValue, isRequired]);
+        }, [isReadOnly, isMulti, newValue, singleIsClearable, multiIsClearable]);
 
         const formatOptionLabel = useCallback(
             (option) => {
@@ -278,11 +289,6 @@ const Select = memo(
             [classes],
         );
 
-        const newIsClearable = useMemo(() => {
-            if (isRequired) return false;
-            else return isClearable;
-        }, [isRequired, isClearable]);
-
         const selectProps = useMemo(() => {
             return {
                 className: selectClassName,
@@ -298,10 +304,10 @@ const Select = memo(
                 actions,
                 isMulti,
                 isDisabled: isReadOnly,
-                isClearable: isMulti ? true : newIsClearable,
+                isClearable: isMulti ? multiIsClearable : singleIsClearable,
                 isLoading: lazyOptions.isLoading,
                 autoFocus: focused,
-                hideSelectedOptions: isMulti ? false : hideSelectedOptions,
+                hideSelectedOptions: isMulti ? hideSelectedOptions || false : hideSelectedOptions,
                 closeMenuOnSelect: isMulti ? false : true,
                 menuPlacement: 'auto',
                 menuPortalTarget: document.body,
@@ -408,7 +414,6 @@ const Select = memo(
             isMulti,
             isReadOnly,
             isFuzzy,
-            newIsClearable,
             loadOptions,
             loadingMessage,
             noOptionsMessage,
@@ -423,6 +428,8 @@ const Select = memo(
             selectClassName,
             focused,
             override,
+            singleIsClearable,
+            multiIsClearable,
             handleOnChange,
             handleOnFocus,
             handleOnBlur,
@@ -500,9 +507,7 @@ Select.defaultProps = {
     value: '',
     isReadOnly: false,
     hideSelectedOptions: true,
-    isClearable: true,
     overrides: {},
-    hideOptions: false,
     filterByKey: false,
     defaultMenuIsOpen: false,
 };
