@@ -108,7 +108,14 @@ function SelectButton({
 
     return (
         <div {...rootProps} ref={ref}>
-            <Button isFullWidth type={type} icon="plus" {...override.Button} onClick={toggleOpen}>
+            <Button
+                isFullWidth
+                type={type}
+                icon="arrowDropDown"
+                iconPosition="right"
+                {...override.Button}
+                onClick={toggleOpen}
+            >
                 {children}
             </Button>
             {isOpen && (
