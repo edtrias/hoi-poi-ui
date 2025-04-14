@@ -13,14 +13,13 @@ export default (theme) => ({
         display: 'block',
     },
     icon: {
-        display: 'block',
+        display: 'flex',
         width: 14,
         height: 14,
         cursor: 'pointer',
         '& svg': {
             width: 14,
             height: 14,
-            marginTop: -1,
         },
         '& path': {
             fill: theme.colors.grey[500],
