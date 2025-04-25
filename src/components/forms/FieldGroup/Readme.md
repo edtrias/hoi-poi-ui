@@ -14,10 +14,6 @@ The FieldGroup component allows grouping multiple form components under a single
 
 ## Usage
 
-```jsx
-import { FieldGroup } from 'hoi-poi-ui';
-```
-
 Text Field:
 
 ```jsx

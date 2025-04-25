@@ -68,11 +68,3 @@ const items = [
 
 <List items={items} bullet="arrowRight" />;
 ```
-
-## Component tree
-
----
-
-[component-tree]
-
----

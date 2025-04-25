@@ -66,11 +66,3 @@ A simple, customizable spinner component that provides visual feedback during lo
     </div>
 </div>
 ```
-
-## Component tree
-
----
-
-[component-tree]
-
----

@@ -86,11 +86,3 @@ const customComponents = {
     }}
 />
 ```
-
-## Component tree
-
----
-
-[component-tree]
-
----

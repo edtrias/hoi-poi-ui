@@ -14,10 +14,6 @@ A dropdown menu component that displays a list of options when triggered by clic
 
 ## Usage
 
-```jsx
-<Menus title="Options" icon={<Icon name="threeDots" />} items={menuItems} />
-```
-
 ### Basic Menu (Click Trigger)
 
 ```jsx
@@ -48,6 +44,8 @@ const items = [
 ### Hover Trigger Menu
 
 ```jsx
+import { Icon, Text } from 'hoi-poi-ui';
+
 const items = [
     {
         title: <Text>Create</Text>,
@@ -72,6 +70,8 @@ const items = [
 ### Menu with Item Descriptions
 
 ```jsx
+import { Icon, Text } from 'hoi-poi-ui';
+
 const items = [
     {
         title: <Text type="body">Create</Text>,
@@ -93,6 +93,8 @@ const items = [
 ### Custom Size Menu
 
 ```jsx
+import { Icon, Text } from 'hoi-poi-ui';
+
 const items = [
     {
         title: <Text>Small option 1</Text>,
@@ -106,11 +108,3 @@ const items = [
 
 <Menus title={<Text>Size</Text>} items={items} size="small" />;
 ```
-
-## Component tree
-
----
-
-[component-tree]
-
----

@@ -16,10 +16,6 @@ The FilePicker component provides a flexible interface for file uploads with dra
 
 ## Usage
 
-```jsx
-import { FilePicker } from 'hoi-poi-ui';
-```
-
 Horizontal label:
 
 ```jsx

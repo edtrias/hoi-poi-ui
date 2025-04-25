@@ -15,20 +15,19 @@ The Label component provides a standardized way to display labels for form field
 ```jsx
 import { Label } from 'hoi-poi-ui';
 
-// Basic label
-<Label>Username</Label>
+<div>
+    <Label>Username</Label>
 
-// Required field label
-<Label isRequired>Email Address</Label>
+    <Label isRequired>Email Address</Label>
 
-// Label with informational hint
-<Label hint="We'll never share your email">Email Address</Label>
+    <Label hint="We'll never share your email">Email Address</Label>
 
-// Disabled label
-<Label isDisabled>Password</Label>
+    <Label isDisabled>Password</Label>
 
-// Combination of features
-<Label isRequired hint="Must be at least 8 characters">Password</Label>
+    <Label isRequired hint="Must be at least 8 characters">
+        Password
+    </Label>
+</div>;
 ```
 
 ### Component tree

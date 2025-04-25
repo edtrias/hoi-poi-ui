@@ -73,11 +73,3 @@ const PostComponent = ({ count, className }) => {
 
 <EllipsedInlineList items={items} postComponent={PostComponent} />;
 ```
-
-## Component tree
-
----
-
-[component-tree]
-
----

@@ -14,10 +14,6 @@ The CheckboxGroup component provides a group of checkboxes with consistent styli
 
 ## Usage
 
-```jsx
-import { CheckboxGroup } from 'hoi-poi-ui';
-```
-
 Default
 
 ```jsx

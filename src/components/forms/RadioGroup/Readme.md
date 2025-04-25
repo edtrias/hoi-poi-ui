@@ -13,10 +13,6 @@ RadioGroup is a component that displays a set of mutually exclusive options as r
 
 ## Usage
 
-```jsx
-import { RadioGroup } from 'hoi-poi-ui';
-```
-
 Default
 
 ```jsx

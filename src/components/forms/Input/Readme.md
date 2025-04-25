@@ -14,10 +14,6 @@ The Input component is a versatile form element that handles various types of us
 
 ## Usage
 
-```jsx
-import { Input } from 'hoi-poi-ui';
-```
-
 Title Field:
 
 ```jsx

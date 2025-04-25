@@ -12,10 +12,6 @@ The Switch component provides a toggle control for binary states (on/off). It of
 
 ## Usage
 
-```jsx
-import { Switch } from 'hoi-poi-ui';
-```
-
 States:
 
 ```jsx

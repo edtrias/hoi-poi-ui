@@ -14,10 +14,6 @@ The Code component provides a powerful code editor based on Ace Editor. It offer
 
 ## Usage
 
-```jsx
-import { Code } from 'hoi-poi-ui';
-```
-
 Default:
 
 ```jsx

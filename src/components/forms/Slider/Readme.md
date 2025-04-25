@@ -15,10 +15,6 @@ The Slider component provides an interactive control for selecting a value (or r
 
 ## Usage
 
-```jsx
-import { Slider } from 'hoi-poi-ui';
-```
-
 Default:
 
 ```jsx
