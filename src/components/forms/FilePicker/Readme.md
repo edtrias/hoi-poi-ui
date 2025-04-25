@@ -1,3 +1,25 @@
+# FilePicker
+
+The FilePicker component provides a flexible interface for file uploads with drag-and-drop capability. It supports single and multiple file selection, previews, image cropping, and custom file grouping with validation.
+
+## Features
+
+-   Drag-and-drop file selection with a fallback button
+-   Single and multiple file modes
+-   Image previews with optional cropping functionality
+-   File type filtering with custom validation rules
+-   File grouping for organizing different types of uploads
+-   Max file size and dimension constraints
+-   Customizable labels, icons, and tooltips
+-   Read-only and disabled states
+-   Visual feedback for file limits and errors
+
+## Usage
+
+```jsx
+import { FilePicker } from 'hoi-poi-ui';
+```
+
 Horizontal label:
 
 ```jsx

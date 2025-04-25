@@ -1,4 +1,19 @@
-Default
+# RadioBoxGroup
+
+The RadioBoxGroup component manages a group of RadioBox components, handling selection state and providing a consistent interface for radio box selection. It's ideal for presenting users with mutually exclusive options that require rich visual presentation.
+
+## Features
+
+-   Group management of RadioBox components
+-   Maintains single selection state across multiple options
+-   Support for disabled state, both group-wide and per-option
+-   Optional children content for selected options
+-   Consistent styling with design system
+-   Full keyboard accessibility
+
+## Usage
+
+Default:
 
 ```jsx
 import { useState } from 'react';
@@ -37,7 +52,7 @@ let onChange = (value) => setState({ value });
 <RadioBoxGroup label="Lorem ipsum" options={options} onChange={onChange} value={state.value} />;
 ```
 
-All disabled
+All disabled:
 
 ```jsx
 import { useState } from 'react';
@@ -73,7 +88,7 @@ let onChange = (value) => setState({ value });
 />;
 ```
 
-One option disabled
+One option disabled:
 
 ```jsx
 import { useState } from 'react';
@@ -108,6 +123,6 @@ let onChange = (value) => setState({ value });
 
 ---
 
--   root - root element
--   [RadioBox](#/General?id=radiobox)
--   radioBoxControl - wrapper with radioBox
+-   root - root container element
+-   radioBoxControl - wrapper for each RadioBox
+-   RadioBox - individual radio box component

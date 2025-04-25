@@ -1,3 +1,23 @@
+# Input
+
+The Input component is a versatile form element that handles various types of user input including text, titles, integers, and decimals. It provides a consistent interface with support for validation, labels, hints, and additional customization options.
+
+## Features
+
+-   Multiple input types (text, title, integer, decimal)
+-   Validation states (error, info)
+-   Customizable labels with different display modes
+-   Read-only and copyable states
+-   Support for pre and post components
+-   Placeholder text
+-   Hints and tooltips
+
+## Usage
+
+```jsx
+import { Input } from 'hoi-poi-ui';
+```
+
 Title Field:
 
 ```jsx

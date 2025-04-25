@@ -65,9 +65,7 @@ const Select = memo(
         onKeyDown,
         customFilter,
         loadOptions,
-        groupOptions,
         loadingMessage,
-        loadingPlaceholder,
         noOptionsMessage,
         actions,
         onClickAction,
@@ -1187,20 +1185,25 @@ Select.overrides = [
 ];
 
 Select.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
-    menuListClassName: PropTypes.string,
-    menuClassName: PropTypes.string,
+    /** Object with custom style overrides */
     overrides: PropTypes.object,
-    /** Async mode */
+    /** Async mode function to load options */
     loadOptions: PropTypes.func,
-    groupOptions: PropTypes.func,
-    /* Autocomplete/Search UI */
+    /** When true, enables search/filtering functionality */
     isFuzzy: PropTypes.bool,
+    /** Function called when select value changes with the new value as parameter */
     onChange: PropTypes.func,
+    /** Function called on key down event */
     onKeyDown: PropTypes.func,
-    /** Native input id */
+    /** Function called when the component loses focus */
+    onBlur: PropTypes.func,
+    /** HTML id attribute assigned to the input element */
     id: PropTypes.string,
+    /** Additional props to pass to the input element */
     inputProps: PropTypes.object,
+    /** List of options to display in the dropdown */
     options: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string,
@@ -1212,97 +1215,151 @@ Select.propTypes = {
             subLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
         }),
     ),
+    /** Default search text when component mounts */
     defaultSearch: PropTypes.string,
+    /** Default value when component mounts */
     defaultValue: PropTypes.any,
+    /** Current value of the select */
     value: PropTypes.any,
+    /** Text to be displayed as the select's label */
     label: PropTypes.string,
+    /** Determines how the label is positioned relative to the input */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** Text displayed when the select has no selected value */
     placeholder: PropTypes.string,
-    noOptionsPlaceholder: PropTypes.string,
-    loadingPlaceholder: PropTypes.string,
+    /** Placeholder text to show when in read-only mode */
+    placeholderReadOnly: PropTypes.string,
+    /** Custom message when no options are available */
+    noOptionsMessage: PropTypes.func,
+    /** Custom message during loading state */
+    loadingMessage: PropTypes.func,
+    /** When true, select will take up 100% of the available width */
     isFullWidth: PropTypes.bool,
+    /** Current value of the input field */
     inputValue: PropTypes.string,
+    /** When true, blurs input on Enter key press */
     forceBlurOnEnter: PropTypes.bool,
+    /** When true, keeps input value when input loses focus */
     keepInputValueOnBlur: PropTypes.bool,
-    /** Keep input value on blur in multi select */
+    /** When true, keeps input value when input loses focus in multi-select mode */
     keepInputValueOnBlurInMulti: PropTypes.bool,
-    /** It allows using the Select as a simple input for search uses */
+    /** When true, preserves value when input changes */
+    keepValueOnInputChange: PropTypes.bool,
+    /** When true, allows using the Select as a simple input for search purposes */
     useAsSimpleSearch: PropTypes.bool,
+    /** Function called when search input loses focus */
     onBlurSearch: PropTypes.func,
-    /** Info popover */
+    /** Function called when Enter key is pressed while select is focused */
+    onEnter: PropTypes.func,
+    /** Tooltip text displayed in an info icon next to the label */
     hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the select, also triggers error styling when present */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    /** Info will be displayed below the component with style changes */
+    /** Informational message displayed below the select */
     info: PropTypes.string,
+    /** When true, displays an asterisk next to the label indicating the field is required */
     isRequired: PropTypes.bool,
+    /** When true, prevents user from interacting with the select */
     isReadOnly: PropTypes.bool,
+    /** When true, allows searching within dropdown options */
     isSearchable: PropTypes.bool,
-    /** Hide the selected option from the menu */
+    /** When true, hides options after they are selected */
     hideSelectedOptions: PropTypes.bool,
-    /** Is the select value clearable */
+    /** When true, shows a button to remove the current selection */
     isClearable: PropTypes.bool,
-    /** React select component customization */
-    components: PropTypes.object,
-    /** multiple select support */
+    /** When true, allows multiple options to be selected */
     isMulti: PropTypes.bool,
-    /** Fixed actions added at the bottom con menu list */
+    /** When true, indicates a loading state and shows spinner */
+    isLoading: PropTypes.bool,
+    /** Action buttons to display in the dropdown menu */
     actions: PropTypes.arrayOf(
         PropTypes.shape({
+            /** Label for the action button */
             label: PropTypes.string,
+            /** Function called when the action button is clicked */
             onClick: PropTypes.func,
         }),
     ),
-    /** Filter by keys as well */
+    /** Function called when an action is clicked */
+    onClickAction: PropTypes.func,
+    /** When true, allows filtering by option keys as well as labels */
     filterByKey: PropTypes.bool,
+    /** When true, the dropdown menu is initially open */
     defaultMenuIsOpen: PropTypes.bool,
-    /** Custom dropDown icon */
+    /** Custom dropdown indicator icon */
     dropDownIcon: PropTypes.element,
     /** Custom clear icon */
     clearIcon: PropTypes.element,
-    /** Custom lock icon */
+    /** Custom lock icon for read-only state */
     lockIcon: PropTypes.element,
+    /** When true, hides the dropdown indicator */
     hideDropdownIndicator: PropTypes.bool,
+    /** Size variant of the select component */
     size: PropTypes.oneOf(['small', 'medium']),
+    /** When true, displays only text without input styling */
     onlyText: PropTypes.bool,
+    /** Custom width for the dropdown menu */
     dropdownWidth: PropTypes.string,
+    /** Component to render before the select control */
     beforeControl: PropTypes.node,
+    /** Component to render after the select control */
     afterControl: PropTypes.node,
+    /** When true, shows the count of selected items for multi select */
     showNumSelected: PropTypes.bool,
+    /** Text to display when showing count of selected items */
     numSelectedLiteral: PropTypes.string,
-    /** Function to customize the option row */
+    /** Function to customize the option row rendering */
     customOption: PropTypes.func,
-    /** If false, the selected value won't be set as selected. Useful if your goal is just to pick an option without showing it on the input */
+    /** When false, the selected value won't be set as selected in the input */
     shouldSetValueOnChange: PropTypes.bool,
+    /** When true, caches options to improve performance */
     cacheOptions: PropTypes.bool,
-    /** Enable/disable focusing first option of the select */
+    /** When true, focuses the first option in the dropdown */
     focusDefaultOption: PropTypes.bool,
-    /** Highlights the first matching characters in the fuzzy result options */
+    /** When true, highlights matched characters in search results */
     highlightMatch: PropTypes.bool,
+    /** Positioning strategy for the dropdown menu */
     menuPosition: PropTypes.oneOf(['absolute', 'fixed']),
-    /** false prints the menu as a sibiling of the control element, true prints the menu in a portal*/
+    /** When true, renders the menu in a React Portal for better stacking */
     useMenuPortal: PropTypes.bool,
+    /** When true, forces the menu to remain open */
     forceMenuIsOpen: PropTypes.bool,
+    /** When true, forces the input to be focused initially */
     forceStartFocused: PropTypes.bool,
+    /** Function to get a reference to the select component */
     getRef: PropTypes.func,
-    /** Hide chips in multiselect */
+    /** Function to determine if a value can be changed */
+    getCanChange: PropTypes.func,
+    /** When true, hides the chips in multi-select mode */
     hideMultivalueChips: PropTypes.bool,
-    /** Control change events from outside the component */
+    /** When true, hides all options in the dropdown */
+    hideOptions: PropTypes.bool,
+    /** Function to control change events from outside the component */
     customOnChange: PropTypes.func,
-    /** Control change input events from outside the component */
+    /** Function to control input change events from outside the component */
     customOnChangeInput: PropTypes.func,
-    /** Prevent to select first option from menu with enter key */
+    /** When true, scrolls menu into view when opened */
+    menuShouldScrollIntoView: PropTypes.bool,
+    /** Function to determine if an option should be marked as selected */
+    isOptionSelected: PropTypes.func,
+    /** When true, prevents auto-selection of the first option with Enter key */
     notSelectingDefaultOption: PropTypes.bool,
-    /** Keep input focused when there is a value on it*/
+    /** When true, keeps input focused when there is a value */
     keepInputFocused: PropTypes.bool,
-    /** Defines wether it should have Select All option and also the label that should be printed in the option row */
+    /** Text for "Select All" option in multi-select (if present, enables select all) */
     selectAllLabel: PropTypes.string,
-    /** Show/hide icon or avatar in selected values in multiselect */
+    /** When true, shows media (icons, avatars) in selected value chips */
     showMediaInSelectedValues: PropTypes.bool,
-    /** Full native react-select component override */
+    /** Custom filter function for searching/filtering options */
+    customFilter: PropTypes.func,
+    /** When true, disables the default filtering mechanism */
+    withoutFilter: PropTypes.bool,
+    /** Full override of the underlying react-select component */
     componentOverride: PropTypes.object,
-    /** Always load results on focus when is fuzzy */
+    /** When true, loads results when the select is focused in fuzzy mode */
     alwaysLoadOnFocus: PropTypes.bool,
+    /** Classes object provided by the styling system */
+    classes: PropTypes.object,
 };
 
 export default Select;

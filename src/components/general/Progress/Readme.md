@@ -1,4 +1,15 @@
-Default:
+# Progress
+
+The Progress component displays a horizontal progress bar that visually represents the completion of a task or process. It changes color based on the percentage of completion.
+
+## Features
+
+-   Color indicators for different progress levels (low, medium, high, higher, full)
+-   Customizable maximum value
+-   Smooth animation options when progress values change
+-   Accessible with ARIA attributes
+
+## Usage
 
 ```jsx
 <div style={{ display: 'flex', flexFlow: 'column', gap: 8 }}>
@@ -39,3 +50,9 @@ useEffect(() => {
     <Progress value={value} animation={animation} />
 </div>;
 ```
+
+### Component tree
+
+---
+
+-   root - main container element

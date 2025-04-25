@@ -66,10 +66,15 @@ function Link({
 Link.overrides = ['root'];
 
 Link.propTypes = {
+    /** Custom className to apply to the component */
     className: PropTypes.string,
+    /** Override the styles of any part of the component. See available override elements in the Component Tree section of the Readme */
     overrides: PropTypes.object,
+    /** Function called when the link is clicked */
     onClick: PropTypes.func,
+    /** Content to be displayed within the link */
     children: PropTypes.node.isRequired,
+    /** Typography style to apply to the link text. Inherits all text styling options from the design system */
     type: PropTypes.oneOf([
         'h1',
         'h2',
@@ -87,14 +92,19 @@ Link.propTypes = {
         'badges',
         'overline',
     ]),
+    /** When true, the link appears inactive and doesn't respond to interaction */
     isDisabled: PropTypes.bool,
-    /** Render the component as a tag <a/> with href */
+    /** URL that the link navigates to. When provided, renders as an <a> tag instead of a button */
     href: PropTypes.string,
-    /** native <a/> target */
+    /** Specifies where to open the linked document. Only applies when href is provided */
     target: PropTypes.string,
+    /** When true, adds an ellipsis to text that overflows its container */
     isTruncated: PropTypes.bool,
+    /** When true, applies a bold font weight to the text */
     bold: PropTypes.bool,
+    /** When true, adds underline styling on hover */
     underline: PropTypes.bool,
+    /** Color variation for the link. 'primary' applies the primary action color */
     variation: PropTypes.oneOf(['primary']),
 };
 

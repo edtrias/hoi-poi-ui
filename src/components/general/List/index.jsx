@@ -84,13 +84,38 @@ const List = forwardRef(
 List.overrides = ['root', 'listItem', 'Text', 'Icon'];
 
 List.propTypes = {
+    /** Custom styles that will merge with the default styles */
     classes: PropTypes.object,
+    /** Custom CSS class for styling the list container */
     className: PropTypes.string,
-    /** Any valid icon name available in the hoi-poi library */
+    /**
+     * Icon name to use as custom bullet points.
+     * Any valid icon name available in the hoi-poi library.
+     * When specified, the list will use icons instead of default bullets.
+     */
     bullet: PropTypes.string,
+    /**
+     * Array of strings to display as list items.
+     * Each string will be rendered as a separate list item.
+     */
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
+    /**
+     * Object with custom style overrides for inner elements.
+     * You can override styles for 'root', 'listItem', 'Text', and 'Icon'.
+     */
     overrides: PropTypes.object,
+    /**
+     * Type of list to render:
+     * - 'unordered': Bulleted list (default)
+     * - 'ordered': Numbered list
+     * - 'unstyled': List without bullets or numbers
+     */
     type: PropTypes.oneOf(['unordered', 'ordered', 'unstyled']),
+    /**
+     * When true, removes the default bullets or numbers.
+     * Useful when you want to create a list without any markers,
+     * or when using custom bullet icons.
+     */
     unStyled: PropTypes.bool,
 };
 

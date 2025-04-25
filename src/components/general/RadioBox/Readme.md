@@ -1,3 +1,17 @@
+# RadioBox
+
+The RadioBox component combines a radio button with rich content, including an icon, title, and descriptive text. It's ideal for displaying selectable options that require more visual information than a standard radio button.
+
+## Features
+
+-   Icon, title, and descriptive text in a single selectable component
+-   Support for checked and read-only states
+-   Ability to display additional content when selected
+-   Consistent styling with the design system
+-   Interactive selection with onChange callback
+
+## Usage
+
 States:
 
 ```jsx
@@ -32,7 +46,7 @@ States:
 </div>
 ```
 
-With children
+With children:
 
 ```jsx
 import { Text } from 'hoi-poi-ui';
@@ -52,6 +66,9 @@ import { Text } from 'hoi-poi-ui';
 ---
 
 -   root - root element
--   [Icon](#/General?id=icon)
--   [Text](#/Typography?id=text)
--   [Radio](#/Forms?id=radio)
+-   icon - icon element
+-   content - container for text content
+-   title - title text element
+-   text - descriptive text element
+-   children - additional content displayed when checked
+-   radio - radio input element

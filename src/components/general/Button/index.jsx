@@ -157,31 +157,41 @@ const Button = forwardRef(
 Button.overrides = ['root', 'Text', 'Loader'];
 
 Button.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Function called when the button is clicked */
     onClick: PropTypes.func,
+    /** Content to be displayed inside the button */
     children: PropTypes.node.isRequired,
+    /** Determines the button size - affects padding, font size, and overall dimensions */
     size: PropTypes.oneOf(['big', 'medium', 'small']),
+    /** Visual style variant of the button */
     type: PropTypes.oneOf([
-        'primary',
-        'primary-soft',
-        'primary-error',
-        'secondary',
-        'secondary-error',
-        'terciary',
-        'dashed',
-        'promotion',
-        'text',
+        'primary', // Default, emphasized action
+        'primary-soft', // Softer version of primary
+        'primary-error', // For destructive primary actions
+        'secondary', // Less emphasized action
+        'secondary-error', // For destructive secondary actions
+        'terciary', // Minimal emphasis
+        'dashed', // With dashed border
+        'promotion', // For promotional/special actions
+        'text', // Text-only appearance
     ]),
+    /** When true, the button cannot be clicked and appears grayed out */
     isDisabled: PropTypes.bool,
-    /** Use the whole container */
+    /** When true, button will take up 100% of the available width */
     isFullWidth: PropTypes.bool,
+    /** When true, displays a loading spinner and disables clicks */
     isLoading: PropTypes.bool,
-    /** Render the component as a tag <a/> with href */
+    /** Renders the button as an anchor tag with this URL */
     href: PropTypes.string,
-    /** native <a/> target */
+    /** Specifies where to open the linked document (for href buttons) */
     target: PropTypes.string,
+    /** Icon name to display from the icon library */
     icon: PropTypes.string,
+    /** Controls the position of the icon relative to the button text */
     iconPosition: PropTypes.oneOf(['left', 'right']),
 };
 

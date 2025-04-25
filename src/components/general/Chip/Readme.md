@@ -1,3 +1,18 @@
+# Chip
+
+Chip is a versatile component used to display discrete pieces of information, tags, or selections. It offers various styles, states, and interactive capabilities like clicking or removing.
+
+## Features
+
+-   Multiple style variations: default, filled, outlined, and outlined with color
+-   Interactive states: active, disabled, and read-only
+-   Optional remove functionality with a close icon
+-   Support for folded/unfolded states for dropdown-like behavior
+-   Customizable content with text, icons, and avatar images
+-   Two size options: small and large
+
+## Usage
+
 Default:
 
 ```jsx

@@ -1,3 +1,20 @@
+# Multiplier
+
+The Multiplier component allows users to dynamically add or remove multiple instances of the same field or form structure. It's useful for collecting an arbitrary number of similar data entries, such as contact information, items in a list, or any repeatable data structure.
+
+## Features
+
+-   Support for both single field and multi-field form structures
+-   Dynamic addition and removal of items
+-   Configurable maximum number of items
+-   Optional visual separators between items
+-   Horizontal or vertical orientation options
+-   Customizable add button label and styling
+-   Full form validation support with error handling
+-   Read-only mode support
+
+## Usage
+
 **Schema:**
 
 ```jsx
@@ -261,9 +278,11 @@ Horizontal mode
 import { useState } from 'react';
 import schema from './example.horizontal.json';
 
-const errors = [{
-    email: 'Invalid email',
-}];
+const errors = [
+    {
+        email: 'Invalid email',
+    },
+];
 const [state, setState] = useState({});
 let onChange = (value, newValue, index, schema) => {
     setState({ value });
@@ -280,7 +299,7 @@ let onChange = (value, newValue, index, schema) => {
     onChange={onChange}
     labelMode="vertical"
     orientation="horizontal"
-/>
+/>;
 ```
 
 Without label

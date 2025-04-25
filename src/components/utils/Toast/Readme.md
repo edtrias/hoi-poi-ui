@@ -1,3 +1,19 @@
+# Toast
+
+The Toast component displays short-lived notifications or messages to the user. It appears temporarily and then disappears automatically or when dismissed by the user.
+
+## Features
+
+-   Different toast types (info, success, warning, error)
+-   Customizable positioning (top-right, top-left, bottom-right, bottom-left)
+-   Auto-close functionality with configurable timing
+-   Custom content support (text or React components)
+-   Optional close button
+-   Stacking behavior with newest-on-top option
+-   Click-to-dismiss capability
+
+## Usage
+
 Default Toast:
 
 ```jsx

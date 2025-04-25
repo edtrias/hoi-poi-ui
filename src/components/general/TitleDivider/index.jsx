@@ -40,7 +40,11 @@ const TitleDivider = ({
 TitleDivider.overrides = ['root', 'Text'];
 
 TitleDivider.propTypes = {
+    /** Custom CSS class for styling the root element */
     className: PropTypes.string,
+    /** Overrides for the component parts' styles */
+    overrides: PropTypes.object,
+    /** Typography style to apply to the text content */
     type: PropTypes.oneOf([
         'h1',
         'h2',
@@ -58,6 +62,8 @@ TitleDivider.propTypes = {
         'badges',
         'overline',
     ]),
+    /** Text content to display in the divider */
+    children: PropTypes.node,
 };
 
 export default memo(TitleDivider);

@@ -1,21 +1,34 @@
-Default:
+# Label
+
+The Label component provides a standardized way to display labels for form fields across the UI library. It supports required field indication with an asterisk and informational hints with tooltips.
+
+## Features
+
+-   Consistent styling for field labels
+-   Required field indication with asterisk
+-   Tooltip hints via an info icon
+-   Disabled state styling
+-   Integration with the typography system
+
+## Usage
 
 ```jsx
-<Label>Lorem ipsum</Label>
-```
+import { Label } from 'hoi-poi-ui';
 
-Required:
+// Basic label
+<Label>Username</Label>
 
-```jsx
-<Label isRequired>Lorem ipsum</Label>
-```
+// Required field label
+<Label isRequired>Email Address</Label>
 
-With hint:
+// Label with informational hint
+<Label hint="We'll never share your email">Email Address</Label>
 
-```jsx
-<Label isRequired hint="Hello!">
-    Lorem ipsum
-</Label>
+// Disabled label
+<Label isDisabled>Password</Label>
+
+// Combination of features
+<Label isRequired hint="Must be at least 8 characters">Password</Label>
 ```
 
 ### Component tree

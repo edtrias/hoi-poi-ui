@@ -1,8 +1,29 @@
+# CheckboxGroup
+
+The CheckboxGroup component provides a group of checkboxes with consistent styling and behavior. It allows users to select multiple options from a predefined list, supports individual hints for each option, and handles both group-level and individual error states.
+
+## Features
+
+-   Multiple checkbox options in a grouped interface
+-   Support for read-only state (for all or individual checkboxes)
+-   Tooltip hints for individual options
+-   Error handling at both group and individual checkbox level
+-   Support for both horizontal and vertical label modes
+-   Full-width layout option for responsive designs
+-   Custom color theme support
+
+## Usage
+
+```jsx
+import { CheckboxGroup } from 'hoi-poi-ui';
+```
+
 Default
 
 ```jsx
 import { useState } from 'react';
-let options = [
+
+const options = [
     {
         label: 'Lorem ipsum',
         value: 'lorem',
@@ -16,22 +37,148 @@ let options = [
         value: 'lorem3',
     },
 ];
+
 const [state, setState] = useState({});
-let onChange = (value) => setState({ value });
+let onChange = (value) => setState(value);
 <CheckboxGroup
     label="Lorem ipsum"
-    color="actionMajor"
+    labelMode="horizontal"
     options={options}
     onChange={onChange}
-    value={state.value}
+    value={state}
 />;
+```
+
+Vertical
+
+```jsx
+import { useState } from 'react';
+
+const options = [
+    {
+        label: 'Lorem ipsum',
+        value: 'lorem',
+    },
+    {
+        label: 'Lorem ipsum 2',
+        value: 'lorem2',
+    },
+    {
+        label: 'Lorem ipsum 3',
+        value: 'lorem3',
+    },
+];
+
+const [state, setState] = useState({});
+let onChange = (value) => setState(value);
+<CheckboxGroup
+    label="Lorem ipsum"
+    labelMode="vertical"
+    options={options}
+    onChange={onChange}
+    value={state}
+/>;
+```
+
+With error
+
+```jsx
+import { useState } from 'react';
+
+const options = [
+    {
+        label: 'Lorem ipsum',
+        value: 'lorem',
+    },
+    {
+        label: 'Lorem ipsum 2',
+        value: 'lorem2',
+    },
+    {
+        label: 'Lorem ipsum 3',
+        value: 'lorem3',
+    },
+];
+
+const [state, setState] = useState({});
+let onChange = (value) => setState(value);
+<CheckboxGroup
+    label="Lorem ipsum"
+    options={options}
+    onChange={onChange}
+    value={state}
+    error="Required field"
+/>;
+```
+
+With individual errors
+
+```jsx
+import { useState } from 'react';
+
+const options = [
+    {
+        label: 'Lorem ipsum',
+        value: 'lorem',
+    },
+    {
+        label: 'Lorem ipsum 2',
+        value: 'lorem2',
+    },
+    {
+        label: 'Lorem ipsum 3',
+        value: 'lorem3',
+    },
+];
+
+const [state, setState] = useState({});
+let onChange = (value) => setState(value);
+<CheckboxGroup
+    label="Lorem ipsum"
+    options={options}
+    onChange={onChange}
+    value={state}
+    error={{
+        lorem: 'This option is required',
+    }}
+/>;
+```
+
+With hints
+
+```jsx
+import { useState } from 'react';
+
+const options = [
+    {
+        label: 'Lorem ipsum',
+        value: 'lorem',
+        hint: {
+            title: 'Lorem ipsum',
+            body: 'Lorem ipsum dolor sit amet',
+        },
+    },
+    {
+        label: 'Lorem ipsum 2',
+        value: 'lorem2',
+    },
+    {
+        label: 'Lorem ipsum 3',
+        value: 'lorem3',
+    },
+];
+
+const [state, setState] = useState({});
+let onChange = (value) => setState(value);
+<CheckboxGroup label="Lorem ipsum" options={options} onChange={onChange} value={state} />;
 ```
 
 Disabled
 
 ```jsx
 import { useState } from 'react';
-let options = [
+
+const options = [
     {
         label: 'Lorem ipsum',
         value: 'lorem',
@@ -46,73 +193,18 @@ let options = [
     },
 ];
 
-const [state, setState] = useState({});
-let onChange = (value) => setState({ value });
+const [state, setState] = useState({
+    lorem: true,
+    lorem2: false,
+    lorem3: true,
+});
+let onChange = (value) => setState(value);
 <CheckboxGroup
     label="Lorem ipsum"
     options={options}
     onChange={onChange}
-    value={state.value}
-    isReadOnly
-/>;
-```
-
-Some Disabled
-
-```jsx
-import { useState } from 'react';
-let options = [
-    {
-        label: 'Lorem ipsum',
-        value: 'lorem',
-    },
-    {
-        label: 'Lorem ipsum 2',
-        value: 'lorem2',
-    },
-    {
-        label: 'Lorem ipsum 3',
-        value: 'lorem3',
-    },
-];
-
-const [state, setState] = useState({});
-let onChange = (value) => setState({ value });
-<CheckboxGroup
-    label="Lorem ipsum"
-    options={options}
-    onChange={onChange}
-    value={state.value}
-    isReadOnly={[false, true, false]}
-/>;
-```
-
-Default vertical label
-
-```jsx
-import { useState } from 'react';
-let options = [
-    {
-        label: 'Lorem ipsum',
-        value: 'lorem',
-    },
-    {
-        label: 'Lorem ipsum 2',
-        value: 'lorem2',
-    },
-    {
-        label: 'Lorem ipsum 3',
-        value: 'lorem3',
-    },
-];
-const [state, setState] = useState({});
-let onChange = (value) => setState({ value });
-<CheckboxGroup
-    label="Lorem ipsum"
-    labelMode="vertical"
-    options={options}
-    onChange={onChange}
-    value={state.value}
+    value={state}
+    isReadOnly={true}
 />;
 ```
 
@@ -120,58 +212,31 @@ Full width
 
 ```jsx
 import { useState } from 'react';
-let options = [
-    {
-        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat. ',
-        value: 'lorem',
-    },
-    {
-        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat.  2',
-        value: 'lorem2',
-    },
-    {
-        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat.  3',
-        value: 'lorem3',
-    },
-];
-const [state, setState] = useState({});
-let onChange = (value) => setState({ value });
-<CheckboxGroup options={options} onChange={onChange} value={state.value} isFullWidth />;
-```
 
-Info hint
-
-```jsx
-import { useState } from 'react';
-let options = [
+const options = [
     {
         label: 'Lorem ipsum',
         value: 'lorem',
-        hint: {
-            title: 'Lorem ipsum dolor sit amet, proin mattis vestibulum 1',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat 1.',
-        },
     },
     {
         label: 'Lorem ipsum 2',
         value: 'lorem2',
-        hint: {
-            title: 'Lorem ipsum dolor sit amet, proin mattis vestibulum 2',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat 2.',
-        },
     },
     {
         label: 'Lorem ipsum 3',
         value: 'lorem3',
-        hint: {
-            title: 'Lorem ipsum dolor sit amet, proin mattis vestibulum 3',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat 3.',
-        },
     },
 ];
+
 const [state, setState] = useState({});
-let onChange = (value) => setState({ value });
-<CheckboxGroup options={options} onChange={onChange} value={state.value} />;
+let onChange = (value) => setState(value);
+<CheckboxGroup
+    label="Lorem ipsum"
+    options={options}
+    onChange={onChange}
+    value={state}
+    isFullWidth={true}
+/>;
 ```
 
 ### Component tree

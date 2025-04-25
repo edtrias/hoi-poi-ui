@@ -301,46 +301,144 @@ Modal.overrides = [
 ];
 
 Modal.propTypes = {
+    /** Custom CSS class for styling the modal container */
     className: PropTypes.string,
+    /** Custom CSS class for styling the modal overlay */
     overlayClassName: PropTypes.string,
+    /**
+     * Object with custom style overrides for inner elements.
+     * You can override styles for 'root', 'title', 'header', 'container', 'content',
+     * 'preComponent', 'postComponent', 'footer', 'footerLeft', 'footerRight',
+     * 'footerComponent', 'closeIcon', 'cancelButton', 'middleButton', 'confirmButton',
+     * 'deleteButton'.
+     */
     overrides: PropTypes.object,
+    /** Content to be displayed inside the modal */
     children: PropTypes.any,
+    /**
+     * Title text or component to display in the modal header.
+     * If a string is provided, it will be rendered as a Text component with bold styling.
+     */
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    /** Controls whether the modal is open or closed */
     isOpen: PropTypes.bool,
+    /**
+     * Modal width in any valid CSS unit.
+     * Overrides the predefined size presets.
+     */
     width: PropTypes.string,
+    /**
+     * Modal height in any valid CSS unit.
+     * When specified, the modal will use a fixed height.
+     */
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /**
+     * Predefined size preset for the modal width.
+     * - tiny: 320px
+     * - small: 440px
+     * - medium: 640px (default)
+     * - large: 960px
+     * - big: 1120px
+     * - huge: 1280px
+     * - full: 90% of viewport
+     */
     size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'big', 'huge', 'full']),
+    /**
+     * When true, the modal height will automatically adjust based on screen size.
+     * Default is true.
+     */
     useAutoHeight: PropTypes.bool,
+    /**
+     * When true, the modal width will automatically adjust based on screen size.
+     * Default is true.
+     */
     useAutoWidth: PropTypes.bool,
+    /**
+     * When true, the content area will have a fixed height.
+     * Default is false, allowing content to overflow with scrolling.
+     */
     useContentStaticHeight: PropTypes.bool,
+    /**
+     * Function called when the cancel button is clicked.
+     * When specified, a cancel button is displayed in the footer.
+     */
     onCancel: PropTypes.func,
+    /**
+     * Function called when the confirm button is clicked.
+     * When specified, a confirm button is displayed in the footer.
+     */
     onConfirm: PropTypes.func,
+    /**
+     * Function called when the middle button is clicked.
+     * When specified, a middle button is displayed in the footer.
+     */
     onMiddleButton: PropTypes.func,
+    /**
+     * Function called when the delete link is clicked.
+     * When specified, a delete link is displayed in the footer.
+     */
     onDelete: PropTypes.func,
+    /** Text for the confirm button */
     confirmText: PropTypes.string,
+    /** Text for the middle button */
     middleButtonText: PropTypes.string,
+    /** Text for the cancel button */
     cancelText: PropTypes.string,
+    /** Text for the delete link */
     deleteText: PropTypes.string,
+    /** When true, the middle button is disabled */
     isMiddleButtonDisabled: PropTypes.bool,
+    /** When true, the middle button displays a loading spinner */
     isMiddleButtonLoading: PropTypes.bool,
+    /** When true, the confirm button is disabled */
     isConfirmDisabled: PropTypes.bool,
-    /** Function that will be called after the drawer has opened */
+    /** When true, the confirm button displays a loading spinner */
     isConfirmLoading: PropTypes.bool,
+    /** Function called after the modal has opened */
     onAfterOpen: PropTypes.func,
-    /** Function that will be called when the drawer is requested to be closed (either by clicking on overlay or pressing ESC) */
+    /** Function called after the modal has closed */
+    onAfterClose: PropTypes.func,
+    /**
+     * Function called when the modal is requested to be closed
+     * (either by clicking on overlay, close icon, or pressing ESC).
+     * Required for the modal to close properly.
+     */
     onRequestClose: PropTypes.func,
-    /** Close on overlay click, you must implement onRequestClose. */
+    /**
+     * When true, clicking the overlay will trigger onRequestClose.
+     * Default is true.
+     */
     shouldCloseOnOverlayClick: PropTypes.bool,
-    /** Close on ESC, you must implement onRequestClose. */
+    /**
+     * When true, pressing the ESC key will trigger onRequestClose.
+     * Default is true.
+     */
     shouldCloseOnEsc: PropTypes.bool,
-    /** Show corner close icon. */
+    /**
+     * When true, displays a close icon in the top-right corner.
+     * Default is true.
+     */
     useCornerClose: PropTypes.bool,
-    /** Show header section */
+    /**
+     * When true, displays the header section with title.
+     * Default is true.
+     */
     useHeader: PropTypes.bool,
+    /**
+     * Time in milliseconds for the closing animation.
+     * Default is 300.
+     */
     closeTimeoutMS: PropTypes.number,
+    /** Custom component to render in the header alongside the title */
     headerComponent: PropTypes.element,
+    /** Component to render between the header and content area */
     preComponent: PropTypes.element,
+    /** Component to render between the content and footer area */
     postComponent: PropTypes.element,
+    /** Custom component to render in the footer */
+    footerComponent: PropTypes.element,
+    /** Function that returns a ref to the modal content element */
+    getContentRef: PropTypes.func,
 };
 
 export default React.memo(Modal);

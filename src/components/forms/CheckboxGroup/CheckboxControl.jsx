@@ -88,19 +88,34 @@ function CheckboxControl({
 CheckboxControl.overrides = ['checkboxLabel', 'checkboxControl'];
 
 CheckboxControl.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Function called when the checkbox is toggled with the option value as parameter */
     onChange: PropTypes.func,
+    /** Data object containing information about this checkbox */
     option: PropTypes.shape({
+        /** Text to display next to the checkbox */
         label: PropTypes.string,
+        /** Unique identifier for the option, used as key in the value object */
         value: PropTypes.string,
+        /** Tooltip information to display next to the checkbox */
         hint: PropTypes.shape({
+            /** Title of the tooltip */
             title: PropTypes.string,
+            /** Main content of the tooltip */
             body: PropTypes.string,
         }),
     }),
+    /** Current checked state of the checkbox */
     value: PropTypes.bool,
+    /** When true, prevents user from changing the checkbox state */
     isReadOnly: PropTypes.bool,
+    /** Error message displayed below this specific checkbox */
+    error: PropTypes.string,
+    /** Theme color to use for the checkbox */
+    color: PropTypes.string,
 };
 
 export default React.memo(CheckboxControl);

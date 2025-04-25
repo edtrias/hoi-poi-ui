@@ -108,25 +108,64 @@ function Drawer({
 Drawer.overrides = ['root', 'Text'];
 
 Drawer.propTypes = {
+    /** Custom CSS class for styling the drawer container */
     className: PropTypes.string,
+    /**
+     * Object with custom style overrides for inner elements.
+     * You can override styles for 'root' and 'Text'.
+     */
     overrides: PropTypes.object,
+    /** Content to be displayed inside the drawer */
     children: PropTypes.any,
+    /** Controls whether the drawer is open or closed */
     isOpen: PropTypes.bool.isRequired,
+    /**
+     * Width of the drawer panel. Can be specified in any valid CSS unit.
+     * For top/bottom drawers, this controls the height.
+     */
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /**
+     * Determines which side of the screen the drawer appears from.
+     * Currently supports 'right' and 'left'.
+     */
     side: PropTypes.oneOf(['right', 'left']),
+    /**
+     * When true, the semi-transparent overlay behind the drawer will be hidden.
+     * Useful for non-modal-like drawers.
+     */
     hideOverlay: PropTypes.bool,
-    /**Milliseconds to wait before closing the drawer */
+    /** Milliseconds to wait before closing the drawer */
     closeTimeout: PropTypes.number,
-    /** Function that will be called after the drawer has opened */
+    /**
+     * Function that will be called after the drawer has opened.
+     * Useful for focusing elements or triggering animations.
+     */
     onAfterOpen: PropTypes.func,
-    /** Function that will be called when the drawer is requested to be closed (either by clicking on overlay or pressing ESC) */
+    /**
+     * Function that will be called when the drawer is requested to be closed
+     * (either by clicking on overlay or pressing ESC).
+     * You must implement this to handle closing the drawer.
+     */
     onRequestClose: PropTypes.func,
-    /** Function that will be called after the drawer has opened and transition has ended*/
+    /**
+     * Function that will be called after the drawer has opened and transition has ended.
+     * Useful for sequencing animations or operations after the drawer is fully visible.
+     */
     onTransitionEnds: PropTypes.func,
-    /** Close on overlay click, you must implement onRequestClose. */
+    /**
+     * When true, clicking the overlay will trigger onRequestClose.
+     * You must implement onRequestClose for this to work.
+     */
     shouldCloseOnOverlayClick: PropTypes.bool,
-    /** Close on ESC, you must implement onRequestClose. */
+    /**
+     * When true, pressing the ESC key will trigger onRequestClose.
+     * You must implement onRequestClose for this to work.
+     */
     shouldCloseOnEsc: PropTypes.bool,
+    /**
+     * Additional styles to be applied to the drawer content container.
+     * These styles will be merged with the default styles.
+     */
     contentStyles: PropTypes.object,
 };
 

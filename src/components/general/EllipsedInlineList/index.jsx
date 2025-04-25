@@ -110,10 +110,29 @@ const EllipsedInlineList = ({
 EllipsedInlineList.overrides = ['root', 'List', 'Count'];
 
 EllipsedInlineList.propTypes = {
+    /** Custom CSS class for styling the container */
     className: PropTypes.string,
+    /**
+     * Character or string used to separate list items.
+     * Default is a comma followed by a space.
+     */
     separator: PropTypes.string,
+    /**
+     * Array of strings to display in the list.
+     * Items will be truncated with a "+N" indicator if they don't fit in the container.
+     */
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
+    /**
+     * Object with custom style overrides for inner elements.
+     * You can override styles for 'root', 'List', and 'Count'.
+     */
     overrides: PropTypes.object,
+    /**
+     * Custom component to display after truncated list.
+     * By default, it shows "+N" where N is the number of hidden items.
+     * This component receives props: count (number of hidden items),
+     * className, and color.
+     */
     postComponent: PropTypes.elementType,
 };
 

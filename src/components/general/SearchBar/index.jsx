@@ -179,42 +179,65 @@ function SearchBar({
 SearchBar.overrides = ['root', 'typeDivider', 'TypeSelector', 'Select'];
 
 SearchBar.propTypes = {
+    /** Custom CSS class for styling */
     className: PropTypes.string,
+    /** Object with custom style overrides */
     overrides: PropTypes.object,
+    /** Callback function triggered when the type selector value changes */
     onChangeType: PropTypes.func,
     /** Allow multiple types selection */
     allowMultipleTypes: PropTypes.bool,
+    /** Text format for displaying selected types count (e.g., "3 Selected") */
     selectedTypesLiteral: PropTypes.string,
+    /** Placeholder text for type selector when multiple types are allowed */
     selectedTypesPlaceholder: PropTypes.string,
+    /** Array of options for the type selector */
     typeOptions: PropTypes.arrayOf(
         PropTypes.shape({
+            /** Display text for the option */
             label: PropTypes.string,
+            /** Value of the option */
             value: PropTypes.any,
+            /** When true, the option cannot be selected */
             isDisabled: PropTypes.bool,
+            /** URL for an image to display with the option */
             src: PropTypes.string,
+            /** Custom icon element to display with the option */
             icon: PropTypes.element,
+            /** Icon type name for using a predefined icon */
             iconType: PropTypes.string,
+            /** Secondary text displayed below the main label */
             subLabel: PropTypes.string,
         }),
     ),
+    /** Currently selected type or types */
     type: PropTypes.any,
+    /** Current value for the search input */
     inputValue: PropTypes.string,
+    /** When true, maintains the input value after the field loses focus */
     keepInputValueOnBlur: PropTypes.bool,
+    /** When true, blurs the input when Enter key is pressed */
     forceBlurOnEnter: PropTypes.bool,
+    /** Callback function triggered when the search field loses focus */
     onBlurSearch: PropTypes.func,
     /** It allows using the Select as a simple input for search uses */
     useAsSimpleSearch: PropTypes.bool,
+    /** When true, hides the dropdown arrow indicator */
     hideDropdownIndicator: PropTypes.bool,
+    /** When true, allows multiple selections */
     isMulti: PropTypes.bool,
     /** Function to customize the option row */
     customOption: PropTypes.func,
     /** Function to customize the option row in the optionType selector */
     customTypeOption: PropTypes.func,
+    /** When true, already selected options won't appear in the dropdown */
     hideSelectedOptions: PropTypes.bool,
     /** If false, the selected value won't be set as selected. Useful if your goal is just to pick an option without showing it on the input */
     shouldSetValueOnChange: PropTypes.bool,
     /** Enable/disable focusing first option of the select */
     focusDefaultOption: PropTypes.bool,
+    /** Function that returns options based on the search text */
+    loadOptions: PropTypes.func,
 };
 
 export default React.memo(SearchBar);

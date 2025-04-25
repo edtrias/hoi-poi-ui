@@ -1,3 +1,19 @@
+# Button
+
+The Button component allows users to trigger actions or events when clicked. It provides several variations in style, size, and behavior to suit different UI needs.
+
+## Features
+
+-   Multiple button types (primary, secondary, etc.)
+-   Different sizes (small, medium, big)
+-   Support for icons with positioning options
+-   Loading states
+-   Disabled state
+-   Full-width option
+-   Link capabilities with href attribute
+
+## Usage
+
 Types:
 
 ```jsx

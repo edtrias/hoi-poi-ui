@@ -202,18 +202,40 @@ Table.overrides = [
 ];
 
 Table.propTypes = {
+    /** Array of data objects to be displayed as table rows */
     rows: PropTypes.array,
-    /** It should be an array of objects with label/id structure */
+    /** Array of column configuration objects with 'label' and 'id' properties */
     columns: PropTypes.array,
+    /** Classes object provided by the styling system */
     classes: PropTypes.object,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Custom className for the table container */
     containerClass: PropTypes.string,
+    /** Custom className for table rows */
     rowClass: PropTypes.string,
+    /** Custom className for the header row */
     headerClass: PropTypes.string,
+    /** Custom className for table cells */
     cellClass: PropTypes.string,
+    /** When true, displays column headers at the top of the table */
     withHeaders: PropTypes.bool,
+    /** Component to display during loading state */
     loadingComp: PropTypes.any,
+    /** Content to display when there are no rows */
     emptyTable: PropTypes.any,
+    /** When true, keeps the header visible when scrolling */
+    isHeaderFixed: PropTypes.bool,
+    /** Function that receives a row and returns custom styles for that row */
+    getRowStyle: PropTypes.func,
+    /** Function that receives a column and returns custom styles for that column */
+    getColumnStyle: PropTypes.func,
+    /** When true, applies background color to even rows */
+    isEvenBackground: PropTypes.bool,
+    /** When true, applies background color to odd rows */
+    isOddBackground: PropTypes.bool,
+    /** When true, applies highlight styling to the header row */
+    isHeaderHighlighted: PropTypes.bool,
 };
 
 export default memo(Table);

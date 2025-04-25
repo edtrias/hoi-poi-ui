@@ -347,41 +347,59 @@ const Input = forwardRef(
 Input.overrides = ['root', 'input', 'preComponent', 'postComponent', 'inputComponents'];
 
 Input.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Text to be displayed as the input's label */
     label: PropTypes.string,
+    /** Determines how the label is positioned relative to the input */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** When true, input will take up 100% of the available width */
     isFullWidth: PropTypes.bool,
-    /** Info popover */
+    /** Tooltip text displayed in an info icon next to the label */
     hint: PropTypes.string,
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the input, also triggers error styling when present */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    /** Info will be displayed below the component with style changes */
+    /** Informational message displayed below the input */
     info: PropTypes.string,
+    /** When true, displays an asterisk next to the label indicating the field is required */
     isRequired: PropTypes.bool,
+    /** Function called when input value changes with the new value as parameter */
     onChange: PropTypes.func,
+    /** Function called when input receives focus */
     onFocus: PropTypes.func,
+    /** Function called when input loses focus */
     onBlur: PropTypes.func,
+    /** Function called when Enter key is pressed while input is focused */
     onEnter: PropTypes.func,
-    /** Native input id */
+    /** HTML id attribute assigned to the input element */
     id: PropTypes.string,
-    /** Native input name */
+    /** HTML name attribute assigned to the input element */
     name: PropTypes.string,
-    /** Native input type */
+    /** HTML input type (text, password, etc.) or component-specific types (title, integer, decimal) */
     type: PropTypes.string,
+    /** Current value of the input */
     value: PropTypes.any,
+    /** Text displayed when the input is empty */
     placeholder: PropTypes.string,
+    /** Number of decimal places to allow/display for decimal type inputs */
     numberDecimals: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Function called when the copy button is clicked */
     onCopy: PropTypes.func,
+    /** When true, prevents user from editing the input */
     isReadOnly: PropTypes.bool,
+    /** When true, displays a copy button to copy the input's content */
     isCopyable: PropTypes.bool,
+    /** When true, hides the clear button for clearing the input */
     hideClear: PropTypes.bool,
+    /** Function to access the input's DOM reference */
     ref: PropTypes.func,
-    /** Component rendered at the input beginning */
+    /** Component rendered at the beginning of the input field */
     preComponent: PropTypes.any,
-    /** Component rendered at the input ending */
+    /** Component rendered at the end of the input field */
     postComponent: PropTypes.any,
-    /** Custom input component */
+    /** Custom component to replace the default input element */
     component: PropTypes.any,
 };
 

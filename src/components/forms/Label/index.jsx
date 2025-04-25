@@ -19,7 +19,6 @@ function Label({
     isRequired,
     hint,
     isDisabled,
-    ...props
 }) {
     const classes = useClasses(useStyles, classesProp);
     // Overrides
@@ -58,10 +57,18 @@ function Label({
 Label.overrides = ['root', 'Popover', 'Text'];
 
 Label.propTypes = {
+    /** Content of the label */
+    children: PropTypes.node,
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** When true, displays an asterisk next to the label indicating the field is required */
     isRequired: PropTypes.bool,
+    /** Tooltip text displayed in an info icon next to the label */
     hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    /** When true, displays the label in a disabled state with lighter text color */
+    isDisabled: PropTypes.bool,
 };
 
 export default React.memo(Label);

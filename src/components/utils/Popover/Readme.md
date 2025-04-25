@@ -1,3 +1,17 @@
+# Popover
+
+The Popover component displays content in a floating container activated by user interaction (click, hover) with a trigger element. It's useful for displaying additional information, menus, or controls without requiring navigation to a new page.
+
+## Features
+
+-   Triggered by various user interactions (click, hover, focus, etc.)
+-   Multiple placement options around the trigger element
+-   Flexible content support (text, HTML, React components)
+-   Automatic positioning to remain within viewport
+-   Customizable styling and transitions
+
+## Usage
+
 ```jsx
 import { Button } from 'hoi-poi-ui';
 

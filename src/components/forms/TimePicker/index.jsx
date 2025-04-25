@@ -426,24 +426,51 @@ const TimePicker = memo(
 );
 
 TimePicker.propTypes = {
-    /** Interval time between values in the list */
+    /** Time interval in minutes between options in the dropdown list (default is 30) */
     interval: PropTypes.number,
-    /** HH:mm:ss */
+    /** Minimum selectable time in 24-hour format (e.g., "09:30:00") */
     minTime: PropTypes.string,
-    /** HH:mm:ss */
+    /** Maximum selectable time in 24-hour format (e.g., "18:30:00") */
     maxTime: PropTypes.string,
+    /** When true, uses the current time as the minimum selectable time */
     isMinTimeNow: PropTypes.bool,
+    /** When true, uses the current time as the maximum selectable time */
     isMaxTimeNow: PropTypes.bool,
+    /** Function to customize the format of each option in the dropdown */
     formatOption: PropTypes.func,
+    /** Custom array of time options to display instead of auto-generated options */
     options: PropTypes.arrayOf(
         PropTypes.shape({
+            /** Display text for the option */
             label: PropTypes.string,
+            /** JavaScript Date object representing the time */
             value: PropTypes.object, //Date
+            /** When true, option appears in the list but cannot be selected */
             isDisabled: PropTypes.bool,
         }),
     ),
-    /** Custom dropDown icon */
+    /** Custom element to replace the default clock icon in the dropdown */
     dropDownIcon: PropTypes.element,
+    /** Text to be displayed as the input's label */
+    label: PropTypes.string,
+    /** Determines how the label is positioned relative to the input ('horizontal' or 'vertical') */
+    labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** When true, the component takes up the full width of its container */
+    isFullWidth: PropTypes.bool,
+    /** Tooltip or informational text displayed in an info icon next to the label */
+    hint: PropTypes.string,
+    /** Error message displayed below the component, also triggers error styling when present */
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    /** Informational message displayed below the component */
+    info: PropTypes.string,
+    /** When true, displays an asterisk next to the label indicating the field is required */
+    isRequired: PropTypes.bool,
+    /** Function called when the selected time changes, receives the time value and action */
+    onChange: PropTypes.func,
+    /** Currently selected time (JavaScript Date object) */
+    value: PropTypes.object,
+    /** Placeholder text displayed when no time is selected */
+    placeholder: PropTypes.string,
 };
 
 export default TimePicker;

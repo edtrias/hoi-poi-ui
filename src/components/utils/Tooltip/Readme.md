@@ -1,3 +1,17 @@
+# Tooltip
+
+The Tooltip component displays informative text when users hover over, focus on, or tap an element. It provides contextual information or additional details about UI elements without cluttering the interface.
+
+## Features
+
+-   Multiple placement options (top, bottom, left, right, etc.)
+-   Supports various content types (text, HTML, components)
+-   Customizable appearance and behavior
+-   Automatically positioned to remain within viewport
+-   Works with any element as a trigger
+
+## Usage
+
 ```jsx
 import { Button } from 'hoi-poi-ui';
 

@@ -193,21 +193,36 @@ SectionForm.overrides = [
 ];
 
 SectionForm.propTypes = {
+    /** Custom CSS class for the component wrapper */
     className: PropTypes.string,
+    /** Title text or custom component to display in the section header */
     title: PropTypes.any,
+    /** Component to render before the title in the header */
     headerPreComponent: PropTypes.any,
+    /** Component to render after the title in the header */
     headerPostComponent: PropTypes.any,
+    /** Function called when the remove icon is clicked */
     onRemove: PropTypes.func,
+    /** Tooltip text to show when hovering over the remove icon */
+    onRemoveTooltip: PropTypes.string,
+    /** Controls whether the section is initially opened when in uncontrolled mode */
     defaultOpen: PropTypes.bool,
+    /** When true, section can be collapsed/expanded */
     isExpandable: PropTypes.bool,
+    /** For controlled component usage, determines if section is expanded */
+    isOpen: PropTypes.bool,
+    /** Number of active fields to display as a badge when section is collapsed */
     activeFields: PropTypes.number,
+    /** Function called when expand/collapse state changes, for controlled components */
     onChange: PropTypes.func,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.shape({
         root: PropTypes.object,
         header: PropTypes.object,
         Text: PropTypes.object,
         icon: PropTypes.object,
     }),
+    /** Defines the layout direction of the section ('horizontal' or 'vertical') */
     orientation: PropTypes.oneOf(['horizontal', 'vertical']),
 };
 

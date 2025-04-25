@@ -20,6 +20,14 @@ const Password = ({ classes: classesProp, ...props }) => {
 };
 
 Password.propTypes = {
+    /**
+     * The Password component inherits all properties from the Input component.
+     * Additional features include:
+     * - A visibility toggle icon that shows/hides password text
+     * - Automatic handling of password/text input type switching
+     *
+     * See Input component documentation for all available props.
+     */
     ...Input.propTypes,
 };
 

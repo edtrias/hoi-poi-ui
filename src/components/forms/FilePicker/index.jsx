@@ -367,21 +367,34 @@ FilePicker.overrides = [
 ];
 
 FilePicker.propTypes = {
-    /** Set accepted file types */
+    /** Set accepted file types. Array of MIME types or file extensions that the component will accept. */
     accept: PropTypes.array,
+    /** Placeholder text shown when the dropzone is active. */
     activePlaceholder: PropTypes.string,
+    /** Label for the file selection button. Default is 'Select file'. */
     buttonLabel: PropTypes.string,
+    /** Object with custom styles classes. Allows for custom styling of the component beyond the default theme. */
     classes: PropTypes.object,
+    /** Override component styles with a custom class. Useful for applying global styles to the component. */
     className: PropTypes.string,
+    /** Aspect ratio for image cropping. Used when cropImages is true. */
     cropAspect: PropTypes.number,
+    /** When true, allows cropping of image files. Displays a crop button for each image. */
     cropImages: PropTypes.bool,
+    /** Text for the accept button in the crop modal. Default is 'Crop'. */
     cropAcceptLabel: PropTypes.string,
+    /** Text for the cancel button in the crop modal. Default is 'Cancel'. */
     cropCancelLabel: PropTypes.string,
+    /** Title for the crop modal. Default is 'Crop image'. */
     cropTitle: PropTypes.string,
+    /** Tooltip text for the crop button. Default is 'Crop image'. */
     cropTooltip: PropTypes.string,
+    /** When true, disables the file picker. User cannot select or drop files. */
     disabled: PropTypes.bool,
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the component. Also triggers error styling when present.
+     * Can be a boolean or string - when true, only applies error styling without showing a message. */
     error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    /** Array of files currently selected. Can be File objects or objects with id and file properties. */
     files: PropTypes.arrayOf(
         PropTypes.oneOfType([
             PropTypes.any,
@@ -391,60 +404,91 @@ FilePicker.propTypes = {
             }),
         ]),
     ),
+    /** Additional data for files to be used for custom rendering or processing. */
     filesData: PropTypes.object,
-    /** Info popover */
+    /** Tooltip text displayed in an info icon next to the label. Provides additional context for the field. */
     hint: PropTypes.string,
-    /** Native filePicker id */
+    /** HTML id attribute for the hidden file input element. */
     id: PropTypes.string,
-    /** Info will be displayed below the component with style changes */
+    /** Informational message displayed below the component. Used for non-error guidance text. */
     info: PropTypes.string,
+    /** When true, component will take up 100% of the available width. Useful for responsive layouts. */
     isFullWidth: PropTypes.bool,
+    /** When true, prevents user from selecting or removing files. The component appears non-interactive. */
     isReadOnly: PropTypes.bool,
+    /** When true, displays an asterisk next to the label indicating the field is required. */
     isRequired: PropTypes.bool,
+    /** Text to be displayed as the file picker's label. Appears above or beside the dropzone. */
     label: PropTypes.string,
+    /** Determines how the label is positioned relative to the file picker.
+     * 'horizontal' places the label beside the dropzone, 'vertical' places it above. */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
-    /** Maximum accepted number of files The default value is 0 which means there is no limitation to how many files are accepted. */
+    /** Maximum accepted number of files. The default value is 0 which means there is no limitation to how many files are accepted.
+     * When set, prevents user from selecting more than the specified number of files. */
     maxFiles: PropTypes.number,
-    /** Maximum file size (in bytes) */
+    /** Maximum file size in bytes. Files larger than this will be rejected. */
     maxSize: PropTypes.number,
-    /** Minimum file size (in bytes) */
+    /** Minimum file size in bytes. Files smaller than this will be rejected. */
     minSize: PropTypes.number,
-    /** Maximum image height (in pixels) */
+    /** Maximum image height in pixels. Images taller than this will be rejected. */
     maxHeight: PropTypes.number,
-    /** Maximum image width (in pixels) */
+    /** Maximum image width in pixels. Images wider than this will be rejected. */
     maxWidth: PropTypes.number,
-    /** Minimum image height (in pixels) */
+    /** Minimum image height in pixels. Images shorter than this will be rejected. */
     minHeight: PropTypes.number,
-    /** Minimum image width (in pixels) */
+    /** Minimum image width in pixels. Images narrower than this will be rejected. */
     minWidth: PropTypes.number,
+    /** When true, allows selecting multiple files at once. */
     multiple: PropTypes.bool,
-    /** Native filePicker name */
+    /** HTML name attribute for the hidden file input element. */
     name: PropTypes.string,
+    /** Function called when an image is cropped. Receives the cropped file and its index in the files array. */
     onCrop: PropTypes.func,
-    /** For a better behaviour use a Promise. Cb for when the drop event occurs. Note that this callback is invoked after the getFilesFromEvent callback is done. */
+    /** Function called when files are dropped or selected. Receives the array of accepted files.
+     * For better behavior, return a Promise from this function. */
     onDrop: PropTypes.func,
-    /** For a better behaviour use a Promise */
+    /** Function called when a file is removed. Receives the file being removed.
+     * For better behavior, return a Promise from this function. */
     onRemove: PropTypes.func,
+    /** Object with custom style overrides for inner elements. Enables deep customization of component parts. */
     overrides: PropTypes.object,
+    /** Main title text displayed in the dropzone. Default is 'Drop files here'. */
     title: PropTypes.string,
-    /** Additional info for size limits, accepted file types and others */
+    /** Additional informational text displayed below the title in the dropzone.
+     * Useful for communicating size limits, accepted file types, etc. */
     subtitle: PropTypes.string,
+    /** When true, displays preview thumbnails for image files. */
     previewImages: PropTypes.bool,
+    /** Defines groups of files with specific validation rules and limits.
+     * Useful for organizing different types of files within the same picker. */
     groups: PropTypes.arrayOf(
         PropTypes.shape({
+            /** Title for the group displayed in the UI. */
             title: PropTypes.string,
+            /** Maximum number of files allowed in this group. */
             maxFiles: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            /** Function that determines if a file belongs to this group. Returns boolean. */
             validateFiles: PropTypes.func,
         }),
     ),
-    /** If maxVisible is true you need to provide foldedText/unfoldedText */
+    /** Maximum number of files to show before collapsing the list. When set, displays a "Show more" button. */
     maxVisible: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Text for the "Show more" button when files are folded (collapsed). Required when maxVisible is set. */
     foldedText: PropTypes.string,
+    /** Text for the "Show less" button when files are unfolded (expanded). Required when maxVisible is set. */
     unfoldedText: PropTypes.string,
-    /** Callback triggered when dropped files exceed the maxFiles*/
+    /** Function called when dropped files exceed the maxFiles limit. Receives the array of dropped files. */
     onExceedFileLimitDrop: PropTypes.func,
-    /** Callback triggered when clicking download icon*/
+    /** Function called when the download icon is clicked. Receives the file being downloaded. */
     handleDownload: PropTypes.func,
+    /** Tooltip text for the download button. */
+    downloadTooltip: PropTypes.string,
+    /** Tooltip text for the delete button. */
+    deleteTooltip: PropTypes.string,
+    /** Custom title component to replace the default text title. */
+    customTitle: PropTypes.node,
+    /** When true, displays a single image preview for the selected file (only works with maxFiles=1). */
+    singleImagePreview: PropTypes.bool,
 };
 
 export default React.memo(FilePicker);

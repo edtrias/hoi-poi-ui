@@ -109,15 +109,23 @@ const Carousel = ({
 Carousel.overrides = ['root', 'ImageGallery'];
 
 Carousel.propTypes = {
+    /** Custom CSS class for styling the carousel container */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
-    // Image URL placeholder
+    /** Image URL to display when an image fails to load */
     placeholder: PropTypes.string,
+    /** Array of image objects to display in the carousel */
     images: PropTypes.arrayOf(
         PropTypes.shape({
+            /** URL for the full-size image */
             original: PropTypes.string,
+            /** URL for the thumbnail image, used in fullscreen mode */
+            thumbnail: PropTypes.string,
         }),
     ),
+    /** When true, shows a simplified version with hidden navigation until fullscreen mode is activated */
+    minVersion: PropTypes.bool,
 };
 
 export default memo(Carousel);

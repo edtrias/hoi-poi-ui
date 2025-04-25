@@ -1,3 +1,20 @@
+# Link
+
+The Link component provides a consistent way to navigate within the application or to external resources. It inherits the styling and behavior of the Text component while adding navigation capabilities. The component renders as a button by default, and as an anchor tag when an `href` is provided.
+
+## Features
+
+-   Renders as native `<a>` or `<button>` element depending on whether an href is provided
+-   All typography styles from the Text component (h1-h6, body, caption, etc.)
+-   Bold and underline styling options
+-   Target control for opening in new tabs/windows
+-   Disabled state for non-interactive links
+-   Text truncation with ellipsis for overflow control
+-   Multiple color variations for different semantic contexts
+-   Customizable through overrides and classNames
+
+## Usage
+
 Default:
 
 ```jsx

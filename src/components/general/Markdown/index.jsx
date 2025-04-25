@@ -110,10 +110,31 @@ const Markdown = memo(
 Markdown.overrides = ['root', 'a', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol'];
 
 Markdown.propTypes = {
+    /** Custom CSS class for styling the Markdown container */
     className: PropTypes.string,
+    /**
+     * Custom components to override default markdown rendering.
+     * Can be used to provide custom renderers for specific markdown elements.
+     * Each key should be a valid markdown element tag (e.g., 'a', 'p', 'h1').
+     */
     components: PropTypes.object,
+    /**
+     * Markdown content to render.
+     * Raw markdown string that will be processed and converted to React components.
+     */
     content: PropTypes.string.isRequired,
+    /**
+     * Callback function that is called when a link in the markdown content is clicked.
+     * Receives an object with { event, attributes, link } where:
+     * - event: The click event
+     * - attributes: Parsed attributes from the link title (as JSON)
+     * - link: Function to execute the default link behavior
+     */
     linkCallback: PropTypes.func,
+    /**
+     * Object with custom style overrides for inner elements.
+     * Supports overrides for 'root', 'a', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol'.
+     */
     overrides: PropTypes.object,
 };
 

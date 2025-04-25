@@ -168,23 +168,46 @@ const Tree = ({
 Tree.overrides = ['root', 'node', 'nodeItem', 'nodeIcon'];
 
 Tree.propTypes = {
+    /** Unique identifier for the tree, useful for custom styling and targeting specific tree instances */
     id: PropTypes.any,
+    /** Function called when a node is toggled (expanded/collapsed). Receives the node object as parameter */
     onToggle: PropTypes.func,
+    /** Function called when a node is selected. Receives the selected node object as parameter */
     onSelect: PropTypes.func,
+    /** Tree data structure defining the nodes hierarchy. Should be a nested object with specific properties */
     nodes: PropTypes.shape({
+        /** Unique identifier for the node, used for selection and state tracking */
         id: PropTypes.any,
+        /** Text label displayed for the node */
+        name: PropTypes.string,
+        /** Array of child nodes with the same structure */
         children: PropTypes.array,
+        /** Determines if the node is expanded (true) or collapsed (false) */
         toggled: PropTypes.bool,
+        /** Determines if the node is currently selected */
         active: PropTypes.bool,
+        /** When true, the node cannot be selected or toggled */
+        isDisabled: PropTypes.bool,
+        /** Determines if the node can be selected (this is automatically determined based on node type and canSelectParents) */
         isSelectable: PropTypes.bool,
     }),
+    /** When true, allows parent nodes with children to be selectable. When false, only leaf nodes can be selected */
     canSelectParents: PropTypes.bool,
+    /** Custom components to override default tree rendering for advanced customization */
     customs: PropTypes.shape({
+        /** Custom container component that wraps the entire node structure */
         Container: PropTypes.func,
+        /** Custom node component that renders the entire node (including icon and content) */
         Node: PropTypes.func,
+        /** Custom icon component for node expansion/collapse indicators */
         NodeIcon: PropTypes.func,
+        /** Custom component for rendering the content/label of each node */
         NodeItem: PropTypes.func,
     }),
+    /** Custom classes applied to the component's root element and inner elements */
+    classes: PropTypes.object,
+    /** Override the styles of any part of the component. Accepts overrides for 'root', 'node', 'nodeItem', and 'nodeIcon' */
+    overrides: PropTypes.object,
 };
 
 export default React.memo(Tree);

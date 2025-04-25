@@ -1,4 +1,18 @@
-Default:
+# ModalCrop
+
+The ModalCrop component provides a modal dialog for cropping images. It integrates with react-image-crop to allow users to select a specific portion of an image for extraction. This component is ideal for profile picture uploads, image editing, or any scenario where image cropping is needed.
+
+## Features
+
+-   Image cropping with adjustable crop area
+-   Configurable aspect ratio constraints
+-   Automatic initial crop suggestion based on image dimensions
+-   File blob generation for the cropped result
+-   Maintains original file type information
+-   Appends '\_crop' to filenames automatically
+-   Integrates with the Modal component for a consistent UI
+
+## Usage
 
 ```jsx
 import { Button, Text, Loader } from 'hoi-poi-ui';
@@ -82,3 +96,12 @@ useEffect(() => {
     />
 </div>;
 ```
+
+### Component tree
+
+---
+
+-   root - wrapper element
+-   cropModal - main modal container
+-   cropModalContent - container for crop component
+-   cropCanvas - canvas for cropping

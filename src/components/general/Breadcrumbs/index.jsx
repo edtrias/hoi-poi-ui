@@ -95,12 +95,18 @@ function Breadcrumbs({
 Breadcrumbs.overrides = ['root', 'item', 'divider'];
 
 Breadcrumbs.propTypes = {
+    /** Custom CSS class for styling the breadcrumbs container */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Function called when a breadcrumb item is clicked, receives the item object */
     onClick: PropTypes.func,
+    /** Array of items to display in the breadcrumb trail */
     items: PropTypes.arrayOf(
         PropTypes.shape({
+            /** Unique identifier for the breadcrumb item */
             id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            /** Text displayed for the breadcrumb item */
             text: PropTypes.string.isRequired,
         }),
     ),

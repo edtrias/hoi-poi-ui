@@ -1,201 +1,286 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+
 import { getOverrides, useClasses } from '../../../utils/overrides';
-
-import Link from '../../typography/Link';
-import InputControl from './InputControl';
-
 import { createUseStyles } from '../../../utils/styles';
 import styles from './styles';
+import Text from '../../typography/Text';
+
 const useStyles = createUseStyles(styles, 'InputGroup');
 
 function InputGroup({
+    children,
     classes: classesProp,
     overrides: overridesProp,
     className: classNameProp,
-    id,
-    type,
+    onClick,
+    onChange,
     onBlur,
     onFocus,
-    onEnter,
-    autoFocus,
-    isFullWidth,
-    placeholder,
+    inputs,
+    showMore,
+    showMoreLabel,
+    label,
+    labelMode,
     hint,
     error,
+    isFullWidth,
+    isReadOnly,
     isRequired,
-    labelMode = 'horizontal',
-    onChange = () => {},
-    value = {},
-    inputs = [],
-    isReadOnly = false,
-    showInputsLabel = 'Show inputs',
-    hideInputsLabel = 'Hide inputs',
+    isVertical,
+    ...props
 }) {
-    const classes = useClasses(useStyles, classesProp);
-    // State && Callbacks
-    const [showInputs, setShowInputs] = useState(false);
-    const onLinkClick = useCallback(() => setShowInputs(!showInputs), [showInputs]);
-
-    // Overrides
-    const override = getOverrides(overridesProp, InputGroup.overrides);
-
     // Classes
+    const override = getOverrides(overridesProp, InputGroup.overrides);
+    const classes = useClasses(useStyles, classesProp);
+
+    // State
+    const [focused, setFocused] = useState(false);
+    const [mustShow, setMustShow] = useState(false);
+
+    // Callbacks
+    const onInputFocus = useCallback(
+        (...args) => {
+            setFocused(true);
+            if (onFocus) onFocus(...args);
+        },
+        [onFocus],
+    );
+
+    const onInputBlur = useCallback(
+        (...args) => {
+            setFocused(false);
+            if (onBlur) onBlur(...args);
+        },
+        [onBlur],
+    );
+
+    const onShowMoreClick = useCallback(() => {
+        setMustShow(true);
+    }, []);
+
+    const handleOnClick = useCallback(
+        (e) => {
+            if (onClick) onClick(e);
+        },
+        [onClick],
+    );
+
     const rootClassName = classnames(
         classes.root,
         {
+            [classes.isReadOnly]: isReadOnly,
+            [classes.focused]: focused,
+            [classes.errored]: error,
+            [classes.vertical]: isVertical,
             [classes.isFullWidth]: isFullWidth,
-            [classes[labelMode]]: labelMode,
         },
         classNameProp,
     );
 
-    const inputsControlClassName = classnames(classes.inputsControl, {
-        [classes.hidden]: !showInputs,
-    });
-
-    const rootProps = { className: rootClassName };
-
-    const onChangeInput = useCallback(
-        (name, inputValue) => {
-            onChange &&
-                onChange({
-                    ...value,
-                    [name]: inputValue ? inputValue : '',
-                });
+    const onInputChange = useCallback(
+        (value, input) => {
+            let newInputs = [...inputs];
+            newInputs[input.id] = {
+                ...newInputs[input.id],
+                value,
+            };
+            if (onChange) onChange(newInputs);
         },
-        [onChange, value],
+        [inputs, onChange],
     );
 
-    const onBlurInput = useCallback(
-        (name, inputValue) => {
-            onBlur &&
-                onBlur({
-                    ...value,
-                    [name]: inputValue ? inputValue : '',
-                });
+    const renderInput = useCallback(
+        (input, key) => {
+            let inputWithProps = React.cloneElement(input.input, {
+                error,
+                isRequired,
+                isReadOnly,
+                key,
+                value: input.value,
+                onChange: (value) => onInputChange(value, input),
+                onFocus: onInputFocus,
+                onBlur: onInputBlur,
+                onClick: handleOnClick,
+                ...(input.input.props || {}),
+            });
+            return inputWithProps;
         },
-        [onBlur, value],
+        [isRequired, isReadOnly, error, onInputChange, onInputFocus, onInputBlur, handleOnClick],
     );
 
-    const onEnterInput = useCallback(
-        (name, inputValue) => {
-            onEnter &&
-                onEnter({
-                    ...value,
-                    [name]: inputValue ? inputValue : '',
-                });
-        },
-        [onEnter, value],
-    );
-
-    const onFocusInput = useCallback(
-        (name, inputValue) => {
-            onFocus &&
-                onFocus({
-                    ...value,
-                    [name]: inputValue ? inputValue : '',
-                });
-        },
-        [onFocus, value],
-    );
-
-    // Principal inputs
-    const inputProps = {
-        id,
-        type,
-        labelMode,
-        isFullWidth,
-        placeholder,
-        hint,
+    const renderInputs = useCallback(() => {
+        if (inputs) {
+            let renderedInputs = [];
+            if (showMore && !mustShow) {
+                let inputsToRender = inputs.filter((input) => !input.hidden && input.show);
+                renderedInputs = inputsToRender.map((input, idx) => renderInput(input, idx));
+                let showMoreElement = (
+                    <div
+                        key="showMore"
+                        onClick={onShowMoreClick}
+                        className={classnames(classes.showMore, {
+                            [classes.isFullWidth]: isFullWidth,
+                        })}
+                    >
+                        <span className={classes.showMoreIcon}>+</span> {showMoreLabel}
+                    </div>
+                );
+                if (renderedInputs.length < inputs.filter((input) => !input.hidden).length) {
+                    renderedInputs.push(showMoreElement);
+                }
+            } else {
+                let inputsToRender = inputs.filter((input) => !input.hidden);
+                renderedInputs = inputsToRender.map((input, idx) => renderInput(input, idx));
+            }
+            return renderedInputs;
+        } else if (children) {
+            return React.cloneElement(children, {
+                error,
+                isRequired,
+                isReadOnly,
+                onFocus: onInputFocus,
+                onBlur: onInputBlur,
+                onClick: handleOnClick,
+            });
+        }
+    }, [
+        classes,
+        children,
         error,
-        isRequired,
-        isReadOnly,
-        name: inputs[0].name,
-        label: inputs[0].label,
-        value: value[inputs[0].name],
-        autoFocus: autoFocus || inputs[0].autoFocus,
-        onChange: onChangeInput,
-        onFocus: onFocusInput,
-        onBlur: onBlurInput,
-        onEnter: onEnterInput,
-        className: classes.Input,
-        ...override.Input,
-    };
-
-    // Hidden inputs
-    const inputsProps = {
-        type,
-        labelMode,
+        inputs,
+        showMore,
+        mustShow,
+        renderInput,
+        onShowMoreClick,
+        showMoreLabel,
         isFullWidth,
-        placeholder,
         isReadOnly,
-        className: classes.Input,
-        ...override.Input,
-    };
-
-    const hiddenInputs = inputs.slice(1);
+        isRequired,
+        onInputFocus,
+        onInputBlur,
+        handleOnClick,
+    ]);
 
     return (
-        <div {...rootProps} {...override.root}>
-            <div className={classes.formControl} {...override.formControl}>
-                <InputControl
-                    {...inputProps}
-                    placeholder={inputsProps.placeholder || inputs[0].placeholder}
-                />
-                <Link type="caption" onClick={onLinkClick} {...override.Link}>
-                    {showInputs ? hideInputsLabel : showInputsLabel}
-                </Link>
-            </div>
-            <div className={inputsControlClassName} {...override.inputsControl}>
-                {hiddenInputs.map((input) => (
-                    <InputControl
-                        key={input.name}
-                        name={input.name}
-                        label={input.label}
-                        value={value[input.name]}
-                        autoFocus={input.autoFocus}
-                        onChange={onChangeInput}
-                        onBlur={onBlurInput}
-                        overrides={{ Label: { classes: { text: classes.hiddenInputLabel } } }}
-                        {...inputsProps}
-                        placeholder={input.placeholder || inputsProps.placeholder}
-                    />
-                ))}
+        <div className={rootClassName} {...override.root}>
+            {label && (
+                <div className={classes.formControl} {...override.formControl}>
+                    <Text className={classes.Label} {...override.label}>
+                        {label}
+                        {isRequired && '*'}
+                    </Text>
+                </div>
+            )}
+            <div
+                className={classnames(classes.inputsContainer, {
+                    [classes.horizontal]: labelMode === 'horizontal',
+                })}
+                {...override.inputsContainer}
+            >
+                <div className={classes.inputs} {...override.inputs}>
+                    {renderInputs()}
+                </div>
+                {hint && (
+                    <div className={classes.formControl} {...override.formControl}>
+                        <Text
+                            className={classnames(classes.error, { [classes.errored]: !!error })}
+                            {...override.error}
+                        >
+                            {error || hint}
+                        </Text>
+                    </div>
+                )}
             </div>
         </div>
     );
 }
 
-InputGroup.overrides = ['root', 'Input', 'formControl', 'inputsControl', 'Link'];
+InputGroup.overrides = [
+    'root',
+    'formControl',
+    'label',
+    'error',
+    'inputsContainer',
+    'inputs',
+    'field',
+];
+
+InputGroup.defaultProps = {
+    labelMode: 'horizontal',
+    onChange: () => {},
+    overrides: {},
+    showMoreLabel: 'Show more',
+};
 
 InputGroup.propTypes = {
+    /** Children to be rendered within the input group. Can be a single input component or multiple components. */
+    children: PropTypes.node,
+    /** Object with custom styles classes. Allows for custom styling of the component beyond the default theme. */
+    classes: PropTypes.object,
+    /** Override component styles with a custom class. Useful for applying global styles to the component. */
     className: PropTypes.string,
-    overrides: PropTypes.object,
-    onChange: PropTypes.func,
+    /** Array of input objects to be rendered in the group. Each object should have id, input, and optional value, show, and hidden properties. */
     inputs: PropTypes.arrayOf(
         PropTypes.shape({
-            label: PropTypes.string,
-            name: PropTypes.string,
+            /** Unique identifier for the input. Required for tracking inputs in the group. */
+            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+            /** React component to render. This should be a form control component. */
+            input: PropTypes.node.isRequired,
+            /** Current value of the input. Will be controlled by the InputGroup. */
+            value: PropTypes.any,
+            /** If true, the input will be shown when using progressive disclosure (showMore). */
+            show: PropTypes.bool,
+            /** If true, the input will not be rendered at all. */
+            hidden: PropTypes.bool,
         }),
-    ).isRequired,
-    /** Native input id */
-    id: PropTypes.string,
-    /** Native input name */
-    name: PropTypes.string,
-    /** Native input type */
-    type: PropTypes.string,
+    ),
+    /** Enables the "show more" functionality for progressive disclosure. When true, only inputs with show:true will be visible initially. */
+    showMore: PropTypes.bool,
+    /** Label for the "show more" button. Used when showMore is true. */
+    showMoreLabel: PropTypes.string,
+    /** Label for the input group. Displayed above or beside the inputs depending on labelMode. */
+    label: PropTypes.string,
+    /** Defines label position: 'horizontal' (label beside inputs) or 'vertical' (label above inputs). */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
-    /** Info popover */
-    hint: PropTypes.string,
-    /** Error will be displayed below the component with style changes */
+    /** Error text to display below the input group. When provided, the group will be styled to indicate an error state. */
     error: PropTypes.string,
+    /** Hint text to display below the input group when there's no error. Provides additional context to the user. */
+    hint: PropTypes.string,
+    /** Indicates that the group is required in a form. Displays an asterisk next to the label. */
     isRequired: PropTypes.bool,
+    /** Makes the input group read-only. Prevents interaction with all inputs in the group. */
     isReadOnly: PropTypes.bool,
-    /** toggle button text for show/hide inputs */
-    showInputsLabel: PropTypes.string,
-    hideInputsLabel: PropTypes.string,
+    /** Makes the component take up the full width of its container. Useful for responsive layouts. */
+    isFullWidth: PropTypes.bool,
+    /** Handler for when inputs change. Called with the updated inputs array. */
+    onChange: PropTypes.func,
+    /** Handler for when "show more" is clicked. Use to perform additional actions when expanding inputs. */
+    onShowMore: PropTypes.func,
+    /** Handler for when the input group is clicked. Triggered on all click events within the group. */
+    onClick: PropTypes.func,
+    /** Handler for when the input group gains focus. Called when any input in the group receives focus. */
+    onFocus: PropTypes.func,
+    /** Handler for when the input group loses focus. Called when focus leaves any input in the group. */
+    onBlur: PropTypes.func,
+    /** Renders inputs in a vertical layout instead of the default horizontal layout. */
+    isVertical: PropTypes.bool,
+    /** Object with custom styles for overriding the component appearance. Allows for deeper customization than classes. */
+    overrides: PropTypes.shape({
+        /** Styles applied to the root element. */
+        root: PropTypes.object,
+        /** Styles applied to the form control wrapper. */
+        formControl: PropTypes.object,
+        /** Styles applied to the label element. */
+        label: PropTypes.object,
+        /** Styles applied to the inputs container. */
+        inputsContainer: PropTypes.object,
+        /** Styles applied to the inputs wrapper. */
+        inputs: PropTypes.object,
+        /** Styles applied to the error text. */
+        error: PropTypes.object,
+    }),
 };
 
 export default React.memo(InputGroup);

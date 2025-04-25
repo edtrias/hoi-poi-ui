@@ -225,20 +225,88 @@ SelectWrapper.overrides = [
 ];
 
 SelectWrapper.propTypes = {
+    /** Content to trigger the select dropdown, typically a Chip, Button, or other interactive element */
     children: PropTypes.any,
+    /** Custom className applied to the root element */
     className: PropTypes.string,
+    /** Override the styles of any part of the component. See the overrides list in Component Tree section */
     overrides: PropTypes.object,
-    ladingMessage: PropTypes.string,
+    /** Array of options to display in the dropdown. Can be flat or grouped with nested options */
+    options: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.shape({
+                label: PropTypes.string.isRequired,
+                value: PropTypes.any.isRequired,
+                isDisabled: PropTypes.bool,
+                className: PropTypes.string,
+                subLabel: PropTypes.string,
+                sideLabel: PropTypes.string,
+                iconType: PropTypes.string,
+                iconColor: PropTypes.string,
+                icon: PropTypes.node,
+                src: PropTypes.string,
+                placeholder: PropTypes.string,
+                alt: PropTypes.string,
+                type: PropTypes.oneOf(['primary', 'danger', 'success']),
+            }),
+            PropTypes.shape({
+                label: PropTypes.string.isRequired,
+                options: PropTypes.array.isRequired,
+            }),
+        ]),
+    ),
+    /** Function that returns a Promise resolving to an array of options (for async loading) */
+    loadOptions: PropTypes.func,
+    /** Custom React element to replace the standard options list */
+    customOptions: PropTypes.node,
+    /** Currently selected option(s). For multi-select, should be an array */
+    value: PropTypes.oneOfType([
+        PropTypes.shape({
+            label: PropTypes.string,
+            value: PropTypes.any,
+        }),
+        PropTypes.arrayOf(
+            PropTypes.shape({
+                label: PropTypes.string,
+                value: PropTypes.any,
+            }),
+        ),
+    ]),
+    /** Function that receives the open state of the dropdown */
+    getIsOpen: PropTypes.func,
+    /** Function called when the dropdown opens */
+    onOpen: PropTypes.func,
+    /** Function called when the dropdown closes */
+    onClose: PropTypes.func,
+    /** Function called when selection changes, receives the new value */
+    onChange: PropTypes.func,
+    /** Custom text to display during async option loading */
+    loadingMessage: PropTypes.string,
+    /** Custom text to display when no options are available */
     noOptionsPlaceholder: PropTypes.string,
-    /** Truncate text label in select options */
-    truncateOptions: PropTypes.bool,
-    /** Enable popover extra width (344px) */
-    popoverWide: PropTypes.bool,
+    /** Additional styles for the Popover overlay */
     overlayStyle: PropTypes.object,
+    /** Additional styles for the inner content of the Popover */
     overlayInnerStyle: PropTypes.object,
+    /** Function to get ref of the Popover component */
     getPopoverRef: PropTypes.func,
+    /** Function to get ref of the Popover content */
     getPopoverContentRef: PropTypes.func,
-    /** Enable to close the valuelist after changing the selection */
+    /** Position of the dropdown relative to the trigger element */
+    placement: PropTypes.oneOf(['bottomLeft', 'bottomRight', 'topLeft', 'topRight']),
+    /** Events that trigger the dropdown to open */
+    trigger: PropTypes.arrayOf(PropTypes.oneOf(['click', 'hover', 'focus'])),
+    /** When true, allows selecting multiple options */
+    isMulti: PropTypes.bool,
+    /** Color theme for checkboxes in multi-select mode */
+    checkboxColor: PropTypes.string,
+    /** When true, checkboxes will have monotone styling */
+    checkBoxIsMonotone: PropTypes.bool,
+    /** When true, option labels will be truncated with ellipsis if they overflow */
+    truncateOptions: PropTypes.bool,
+    /** When true, the popover will use a wider width (344px instead of 240px) */
+    popoverWide: PropTypes.bool,
+    /** When true, the dropdown will close after selecting an option in single-select mode */
     closeOnChangeSingle: PropTypes.bool,
 };
 

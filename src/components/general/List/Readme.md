@@ -1,4 +1,19 @@
-Default:
+# List
+
+A component that renders a collection of items as an ordered, unordered, or unstyled list with customizable styling options.
+
+## Features
+
+-   Support for ordered (numbered) lists
+-   Support for unordered (bulleted) lists
+-   Ability to replace bullets with custom icons
+-   Option to remove all list markers
+-   Consistent text styling for list items
+-   Customizable via overrides system
+
+## Usage
+
+### Default (Unordered List)
 
 ```jsx
 const items = [
@@ -9,10 +24,10 @@ const items = [
     'Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum.',
 ];
 
-<List items={items} />
+<List items={items} />;
 ```
 
-Ordered List:
+### Ordered List
 
 ```jsx
 const items = [
@@ -23,10 +38,10 @@ const items = [
     'Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum.',
 ];
 
-<List items={items} type="ordered" />
+<List items={items} type="ordered" />;
 ```
 
-Unstyled List:
+### Unstyled List
 
 ```jsx
 const items = [
@@ -37,10 +52,10 @@ const items = [
     'Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum.',
 ];
 
-<List items={items} unStyled />
+<List items={items} unStyled />;
 ```
 
-With custom bullet:
+### Custom Icon Bullets
 
 ```jsx
 const items = [
@@ -51,11 +66,13 @@ const items = [
     'Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum.',
 ];
 
-<List items={items} bullet="arrowRight" />
+<List items={items} bullet="arrowRight" />;
 ```
 
-### Component tree
+## Component tree
 
--   root - root element
--   [Icon](#/General?id=icon)
--   [Text](#/Typography?id=text)
+---
+
+[component-tree]
+
+---

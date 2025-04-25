@@ -1,3 +1,16 @@
+# BadgeNotification
+
+The BadgeNotification component displays numerical notifications or short text in a small, attention-grabbing circular element. It's typically used to indicate counts, such as unread messages, pending tasks, or other quantitative notifications.
+
+## Features
+
+-   Three size options (tiny, small, medium)
+-   Circular design with centered text
+-   High contrast color scheme for visibility
+-   Responsive font sizing appropriate to each size variant
+
+## Usage
+
 Default:
 
 ```jsx

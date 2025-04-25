@@ -56,9 +56,13 @@ function Badge({
 Badge.overrides = ['root', 'Text'];
 
 Badge.propTypes = {
+    /** Content to be displayed inside the badge */
     children: PropTypes.node.isRequired,
+    /** Custom CSS class for styling */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Visual style of the badge to indicate different states or categories */
     type: PropTypes.oneOf([
         'error',
         'default',
@@ -73,7 +77,12 @@ Badge.propTypes = {
         'semanticFocus',
         'actionMinor',
     ]),
+    /** Alternative visual style that inverts the badge's colors */
     variant: PropTypes.oneOf(['inverted']),
+    /** When true, text that doesn't fit will be truncated with an ellipsis */
+    isTruncated: PropTypes.bool,
+    /** When true, displays the full text in a tooltip when hovering over a truncated badge */
+    useTooltip: PropTypes.bool,
 };
 
 export default React.memo(Badge);

@@ -1,3 +1,20 @@
+# Text
+
+The Text component provides a consistent way to display and style text throughout the application. It supports various typography styles, formatting options, and text behaviors.
+
+## Features
+
+-   Multiple typography variants (h1-h6, subtitles, body, etc.)
+-   Text truncation with ellipsis
+-   Tooltip support for truncated or complex text
+-   Bold and medium font weight options
+-   Strikethrough text styling
+-   Highlighting capability
+-   Optional divider below text
+-   Customizable HTML element rendering
+
+## Usage
+
 Default:
 
 ```jsx

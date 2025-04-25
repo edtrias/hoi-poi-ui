@@ -1,3 +1,24 @@
+# Slider
+
+The Slider component provides an interactive control for selecting a value (or range of values) by moving a handle along a track. It offers customization options for appearance, behavior, and formatting.
+
+## Features
+
+-   Single value or range selection modes
+-   Customizable min/max values and step size
+-   Tooltip with formatted value display
+-   Percentage mode with automatic % symbol
+-   Reverse direction capability
+-   Read-only state support
+-   Error and info messaging
+-   Auto-sizing with full-width option
+
+## Usage
+
+```jsx
+import { Slider } from 'hoi-poi-ui';
+```
+
 Default:
 
 ```jsx
@@ -201,7 +222,7 @@ const getValue = useMemo(() => {
 
 -   root - root element
 -   [rc-slider](https://github.com/react-component/slider/)
--   infor - Info text wrapper
+-   info - Info text wrapper
 -   error - Error wrapper
 -   formControl - Input wrapper excluding label
 -   [Label](#/Forms?id=label)

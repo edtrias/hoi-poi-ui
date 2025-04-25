@@ -1,3 +1,18 @@
+# Avatar
+
+The Avatar component displays user or entity images, icons, or initials in a circular or square shape.
+
+## Features
+
+-   Multiple size options (tiny, small, medium, large, big, huge)
+-   Shape variants (circle or square)
+-   Supports images with placeholder fallback
+-   Generates initials from user names
+-   Icon support when no image is available
+-   Multiple avatars grouping capability
+
+## Usage
+
 Default:
 
 ```jsx

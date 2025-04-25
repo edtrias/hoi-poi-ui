@@ -1,3 +1,19 @@
+# Section
+
+The Section component provides a collapsible container for grouping related content. It features a header with a title and optional controls for expanding, collapsing, or removing the section.
+
+## Features
+
+-   Expandable/collapsible content area
+-   Optional remove functionality
+-   Support for tracking active fields and displaying counts
+-   Custom title components
+-   Controlled or uncontrolled expansion state
+-   Optional header components (pre and post)
+-   Consistent styling with the design system
+
+## Usage
+
 Section Simple
 
 ```jsx
@@ -192,10 +208,11 @@ const onChange = (value) => setState({ value });
 
 ---
 
--   root - root element
--   [react-animate-height](https://github.com/Stanko/react-animate-height)
--   [Text](#/Typography?id=text)
--   [BadgeNotification](#/General?id=badgenotification)
--   textContainer
--   header
--   icon
+-   root - main container element
+-   header - section header that contains the title and controls
+-   textContainer - wrapper for the title text
+-   titleContainer - container for the title and icon
+-   headerContent - container for all header elements
+-   icon - dropdown arrow icon for expandable sections
+-   BadgeNotification - badge showing count of active fields when collapsed
+-   AnimateHeight - animation wrapper for expandable content

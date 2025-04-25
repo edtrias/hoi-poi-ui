@@ -1,3 +1,16 @@
+# Breadcrumbs
+
+The Breadcrumbs component displays a hierarchy of links that helps users understand their current location within the application and navigate to parent pages or sections.
+
+## Features
+
+-   Shows the navigation path in a hierarchical structure
+-   Support for clickable items with custom click handlers
+-   Automatically adds separators between items
+-   Responsive design that adapts to available space
+
+## Usage
+
 Default:
 
 ```jsx

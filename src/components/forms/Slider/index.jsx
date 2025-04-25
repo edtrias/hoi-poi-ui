@@ -176,32 +176,42 @@ function Slider({
 Slider.overrides = ['root', 'rc-slider', 'overlay', 'overlayLabel', 'overlayHandler'];
 
 Slider.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Text to be displayed as the slider's label */
     label: PropTypes.string,
+    /** Current value of the slider (for range: array with two values, for single: number) */
     value: PropTypes.any,
+    /** Function called when the slider value changes */
     onChange: PropTypes.func,
+    /** When true, slider will take up 100% of the available width */
     isFullWidth: PropTypes.bool,
+    /** When true, renders the slider as a range selector with two handles */
     isRange: PropTypes.bool,
-    /** Info popover */
+    /** Tooltip text displayed in an info icon next to the label */
     hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the component, also triggers error styling when present */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    /** When true, prevents user from changing the slider value */
     isReadOnly: PropTypes.bool,
-    /** A function to format tooltip\'s overlay */
+    /** Custom function to format the tooltip value display */
     tipFormatter: PropTypes.func,
-    /** This prop adds percentage symbol to value label */
+    /** When true, appends a percentage symbol (%) to the value label */
     isPercentage: PropTypes.bool,
-    /** The maximum value of the slider */
+    /** The maximum value the slider can represent */
     max: PropTypes.number,
-    /** The minimum value of the slider */
+    /** The minimum value the slider can represent */
     min: PropTypes.number,
-    /** Value to be added or subtracted on each step the slider makes. Must be greater than zero, and max - min should be evenly divisible by the step value.  */
+    /** Value increment/decrement for each step of the slider. Must be greater than zero, and max - min should be evenly divisible by the step value. */
     step: PropTypes.number,
-    /** Info will be displayed below the component with style changes */
-    info: PropTypes.string,
-    /** If the value is true, it means the component is rendered reverse. (Handle moves from right to left) */
+    /** When true, reverses the slider direction (handle moves from right to left) */
     reverse: PropTypes.bool,
+    /** When true, always shows the current value above the slider handle */
+    showValue: PropTypes.bool,
+    /** Custom size variant for the slider component */
+    size: PropTypes.string,
 };
 
 export default React.memo(Slider);

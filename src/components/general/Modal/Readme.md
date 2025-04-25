@@ -1,3 +1,21 @@
+# Modal
+
+The Modal component displays content in a dialog that appears over the main content, requiring user interaction. It provides a flexible container for alerts, confirmation dialogs, and detailed forms or content that requires focus.
+
+## Features
+
+-   Multiple size options (small, medium, large)
+-   Customizable header with title
+-   Support for footer buttons (confirm, cancel, delete, middle)
+-   Loading states for buttons
+-   Auto-height and auto-width capabilities
+-   Overlay click handling
+-   Keyboard interaction (ESC key)
+-   Support for custom header and footer components
+-   Animation transitions
+
+## Usage
+
 Default:
 
 ```jsx

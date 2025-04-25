@@ -1,3 +1,20 @@
+# TimePicker
+
+The TimePicker component provides a user-friendly interface for selecting time values. It uses a dropdown list of time options generated at specific intervals and supports various time constraints like minimum and maximum allowed times.
+
+## Features
+
+-   Configurable time intervals (default is 30 minutes)
+-   Support for minimum and maximum time constraints
+-   Option to use current time as minimum or maximum constraint
+-   Manual time entry with validation
+-   Disabled time options
+-   Custom formatting of time options
+-   Custom dropdown icon support
+-   Full integration with form validation
+
+## Usage
+
 Simple:
 
 ```jsx

@@ -1,3 +1,19 @@
+# DatePicker
+
+The DatePicker component provides an interactive calendar interface for selecting dates. Built on flatpickr, it offers a user-friendly way to input date values with validation and formatting capabilities.
+
+## Features
+
+-   Calendar popup for intuitive date selection
+-   Configurable date format and output type (string or object)
+-   Min/max date constraints for validation
+-   Customizable date formatting
+-   Support for readonly state
+-   Localization support
+-   Integration with form validation system
+
+## Usage
+
 Default:
 
 ```jsx

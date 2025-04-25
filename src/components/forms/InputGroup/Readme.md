@@ -1,3 +1,22 @@
+# InputGroup
+
+InputGroup is a component that allows grouping multiple input elements together with a shared label, hint, and error state. It supports progressive disclosure through a "show more" feature and different layout modes.
+
+## Features
+
+-   Groups multiple inputs under a single label and validation state
+-   Supports progressive disclosure with "show more" functionality
+-   Vertical or horizontal label positioning
+-   Ability to show/hide specific inputs based on conditions
+-   Customizable styling through overrides
+-   Full width support for responsive layouts
+
+## Usage
+
+```jsx
+import { InputGroup } from 'hoi-poi-ui';
+```
+
 Default
 
 ```jsx

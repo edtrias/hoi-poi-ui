@@ -1,3 +1,21 @@
+# Textarea
+
+The Textarea component is a multi-line text input field with enhanced functionality. It extends the standard HTML textarea with auto-resizing capabilities, label support, error handling, and additional features like copy functionality and clear button.
+
+## Features
+
+-   Auto-resizing text area that grows with content
+-   Configurable minimum and maximum number of visible rows
+-   Horizontal and vertical label positioning
+-   Error and information message display
+-   Read-only mode with lock icon indicator
+-   Optional copy-to-clipboard functionality
+-   Clear button for quickly emptying the field
+-   Optional resizing control
+-   Full width support for responsive layouts
+
+## Usage
+
 Textarea Field:
 
 ```jsx

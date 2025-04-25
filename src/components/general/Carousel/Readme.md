@@ -1,3 +1,17 @@
+# Carousel
+
+The Carousel component provides an interactive image gallery with navigation controls, fullscreen capabilities, and thumbnails. It's built on top of react-image-gallery to deliver a rich image viewing experience.
+
+## Features
+
+-   Navigation controls for browsing through images
+-   Fullscreen mode with thumbnails
+-   Minimalist mode with simplified controls
+-   Customizable placeholder for failed image loads
+-   Responsive design that adapts to container size
+
+## Usage
+
 Default:
 
 ```jsx
