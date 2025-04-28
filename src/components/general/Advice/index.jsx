@@ -201,13 +201,21 @@ Advice.overrides = [
 ];
 
 Advice.propTypes = {
+    /** Content to be displayed in the advice component */
     children: PropTypes.node.isRequired,
+    /** Optional title for the advice, renders in bold above the main content */
     title: PropTypes.any,
+    /** Custom CSS class for styling */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** When true, displays an appropriate icon based on the advice type */
     showIcon: PropTypes.bool,
+    /** When true, enables collapsing/expanding of long content with a dropdown icon */
     showCollapse: PropTypes.bool,
+    /** Controls whether long content is initially collapsed (true) or expanded (false) */
     defaultCollapsed: PropTypes.bool,
+    /** Sets the visual style and icon of the advice based on its purpose */
     type: PropTypes.oneOf([
         'semanticPositive',
         'semanticNegative',
@@ -219,8 +227,11 @@ Advice.propTypes = {
         'success',
         'warning',
     ]),
+    /** When true, displays a dismiss button that can remove the advice */
     isDismissable: PropTypes.bool,
+    /** Text displayed on the dismiss button when isDismissable is true */
     dismissText: PropTypes.string,
+    /** Function called when the dismiss button is clicked */
     onDismiss: PropTypes.func,
 };
 

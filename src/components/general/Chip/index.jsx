@@ -194,23 +194,41 @@ Chip.overrides = [
 ];
 
 Chip.propTypes = {
+    /** Text content displayed inside the chip */
     children: PropTypes.string.isRequired,
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Size of the chip component */
     size: PropTypes.oneOf(['small', 'large']),
+    /** URL for the avatar image displayed on the left side of the chip */
     src: PropTypes.string,
+    /** Placeholder image URL shown while the avatar is loading or on error */
     placeholder: PropTypes.string,
+    /** Alternative text for the avatar image for accessibility */
     alt: PropTypes.string,
+    /** Name of the icon to display on the left side of the chip */
     icon: PropTypes.string,
+    /** When true, renders the chip with a filled background */
     isFilled: PropTypes.bool,
+    /** When true, renders the chip with an outline border */
     isOutlined: PropTypes.bool,
+    /** When true, renders the chip with an outline border using the color theme */
     isOutlinedColor: PropTypes.bool,
+    /** When true, shows a dropdown icon, indicating the chip can be expanded */
     isFolded: PropTypes.bool,
+    /** When true, shows a dropdown icon in the open state */
     isUnfolded: PropTypes.bool,
+    /** When true, the chip appears disabled and cannot be interacted with */
     isDisabled: PropTypes.bool,
+    /** When true, the chip appears in read-only mode with a lock icon */
     isReadOnly: PropTypes.bool,
+    /** When true, renders the chip in an active/selected state */
     isActive: PropTypes.bool,
+    /** Function called when the chip is clicked */
     onClick: PropTypes.func,
+    /** Function called when the remove button is clicked */
     onRemove: PropTypes.func,
 };
 

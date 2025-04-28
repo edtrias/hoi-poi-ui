@@ -90,17 +90,26 @@ function Stepper({
 Stepper.overrides = ['root', 'rc-steps'];
 
 Stepper.propTypes = {
+    /** Custom CSS class for styling the root container */
     className: PropTypes.string,
+    /** Object with custom style overrides */
     overrides: PropTypes.object,
+    /** Array of step objects defining the stepper navigation */
     steps: PropTypes.arrayOf(
         PropTypes.shape({
+            /** Text label displayed for the step */
             title: PropTypes.string,
+            /** When true, the step is marked as completed with a check icon */
             isCompleted: PropTypes.bool,
         }),
     ),
+    /** Zero-based index of the current active step */
     currentStep: PropTypes.number,
+    /** Callback function triggered when a step is clicked. Receives the step index as parameter */
     onClick: PropTypes.func,
+    /** Positioning of step labels relative to step indicators ('horizontal' or 'vertical') */
     labelPlacement: PropTypes.string,
+    /** When true, step labels are not displayed, showing only the step indicators */
     withoutLabels: PropTypes.bool,
 };
 

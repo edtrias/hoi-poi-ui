@@ -1,3 +1,19 @@
+# SwitchInput
+
+The SwitchInput component combines a Switch toggle with an InputWrapper to create a fully featured form control. It provides a toggle switch with label, error states, and additional information support, making it suitable for boolean inputs in forms.
+
+## Features
+
+-   Label support with both horizontal and vertical orientations
+-   Toggle switch for boolean value selection
+-   Error state handling with error message display
+-   Info/hint text support for additional context
+-   Read-only mode for disabled interactions
+-   Full width layout support
+-   Consistent form control styling
+
+## Usage
+
 States:
 
 ```jsx

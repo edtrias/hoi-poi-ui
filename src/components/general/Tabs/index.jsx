@@ -334,26 +334,53 @@ function Tabs({
 Tabs.overrides = ['root', 'rc-tabs', 'close'];
 
 Tabs.propTypes = {
+    /** Custom CSS class for styling the root container */
     className: PropTypes.string,
+    /** Object with custom style overrides */
     overrides: PropTypes.object,
+    /** Array of tab objects that define the tabs to be displayed */
     tabs: PropTypes.arrayOf(
         PropTypes.shape({
+            /** Unique identifier for the tab */
             key: PropTypes.string.isRequired,
+            /** Text or component to display in the tab header */
             title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+            /** Content to display when the tab is active */
             content: PropTypes.node,
+            /** Content to show in a popover when hovering over the tab */
             popoverContent: PropTypes.node,
+            /** Width of the popover in pixels */
             popoverWidth: PropTypes.number,
+            /** When true, the tab cannot be closed (used with editable=true) */
+            fixed: PropTypes.bool,
         }),
     ),
+    /** Key of the currently active tab */
     activeKey: PropTypes.string,
+    /** Callback triggered when a tab is clicked. Receives the tab key as parameter */
     onChange: PropTypes.func,
+    /** Callback triggered when a tab is closed. Receives an object with key, activeKey and tabs */
     onClose: PropTypes.func,
+    /** Position of the tabs relative to content ('left', 'right', 'top', 'bottom') */
     position: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
+    /** Component to display after the tabs */
     postComponent: PropTypes.node,
+    /** When true, the tabs layout is vertical */
+    vertical: PropTypes.bool,
+    /** When true, tabs can be closed with an X icon */
     editable: PropTypes.bool,
+    /** When true, tabs always show close button even if there's only one tab */
     alwaysShowCloseTab: PropTypes.bool,
+    /** Reference to the container element for positioning popovers within a specific container */
     containerElement: PropTypes.any,
+    /** Pixel offset correction for popover positioning */
     popoverOffsetCorrection: PropTypes.number,
+    /** When true, aligns popover to the left edge of the tab instead of centering it */
+    popoverAlignLeft: PropTypes.bool,
+    /** When true, enables drag and drop reordering of tabs */
+    draggable: PropTypes.bool,
+    /** Callback triggered when tabs are reordered. Receives the new tabs array */
+    onSorting: PropTypes.func,
 };
 
 export default memo(Tabs);

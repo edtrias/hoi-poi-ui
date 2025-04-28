@@ -76,18 +76,26 @@ const InputWrapper = forwardRef(
 InputWrapper.overrides = ['root', 'error', 'info', 'formControl', 'Label', 'inputWrapper'];
 
 InputWrapper.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Text to be displayed as the field's label */
     label: PropTypes.string,
+    /** Determines how the label is positioned relative to the input */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** When true, component will take up 100% of the available width */
     isFullWidth: PropTypes.bool,
-    /** Info popover */
+    /** Tooltip text displayed in an info icon next to the label */
     hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the component, also triggers error styling when present */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    /** Info will be displayed below the component with style changes */
+    /** Informational message displayed below the component */
     info: PropTypes.string,
+    /** When true, displays an asterisk next to the label indicating the field is required */
     isRequired: PropTypes.bool,
+    /** The input component to be wrapped */
+    children: PropTypes.node,
 };
 
 export default InputWrapper;

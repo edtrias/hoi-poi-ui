@@ -46,22 +46,26 @@ function Tooltip({
 Tooltip.overrides = ['root'];
 
 Tooltip.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** The content to be displayed inside the tooltip (text, HTML, or React component) */
     content: PropTypes.any,
+    /** Controls the position of the tooltip relative to the target element */
     placement: PropTypes.oneOf([
-        'top',
-        'topLeft',
-        'topRight',
-        'bottom',
-        'bottomLeft',
-        'bottomRight',
-        'left',
-        'leftTop',
-        'leftBottom',
-        'right',
-        'rightTop',
-        'rightBottom',
+        'top', // Above the element, centered
+        'topLeft', // Above the element, aligned to the left
+        'topRight', // Above the element, aligned to the right
+        'bottom', // Below the element, centered
+        'bottomLeft', // Below the element, aligned to the left
+        'bottomRight', // Below the element, aligned to the right
+        'left', // To the left of the element, centered
+        'leftTop', // To the left of the element, aligned to the top
+        'leftBottom', // To the left of the element, aligned to the bottom
+        'right', // To the right of the element, centered
+        'rightTop', // To the right of the element, aligned to the top
+        'rightBottom', // To the right of the element, aligned to the bottom
     ]),
 };
 

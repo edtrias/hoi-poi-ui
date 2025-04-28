@@ -69,13 +69,21 @@ const RadioBox = ({
 RadioBox.overrides = ['root', 'icon', 'content', 'title', 'text', 'radio'];
 
 RadioBox.propTypes = {
+    /** Icon name to be displayed in the component */
     icon: PropTypes.string,
+    /** Main heading text for the RadioBox */
     title: PropTypes.string,
+    /** Descriptive text providing additional information */
     text: PropTypes.string,
+    /** Determines if the radio is selected */
     checked: PropTypes.bool,
+    /** Custom CSS class for styling */
     className: PropTypes.string,
-    isDisabled: PropTypes.bool,
+    /** When true, the component is in read-only state and cannot be interacted with */
+    isReadOnly: PropTypes.bool,
+    /** Callback function triggered when the radio selection changes */
     onChange: PropTypes.func,
+    /** Object with custom style overrides */
     overrides: PropTypes.object,
 };
 

@@ -173,15 +173,25 @@ function ModalCrop({
 }
 
 ModalCrop.propTypes = {
+    /** Aspect ratio for the crop (width/height). When provided, constrains the crop box to this ratio. */
     aspect: PropTypes.number,
+    /** Text for the confirm button in the modal footer */
     confirmText: PropTypes.string,
+    /** Text for the cancel button in the modal footer */
     cancelText: PropTypes.string,
+    /** Custom classes object for custom styling */
     classes: PropTypes.object,
+    /** File object or string URL of the image to be cropped */
     file: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    /** Controls whether the modal is displayed */
     isOpen: PropTypes.bool,
+    /** Function called when the cancel button is clicked or the modal is closed */
     onCancel: PropTypes.func,
+    /** Function called when the confirm button is clicked, receives the cropped image as a Blob */
     onAccept: PropTypes.func,
+    /** Title text displayed in the modal header */
     title: PropTypes.string,
+    /** Object with custom style overrides */
     overrides: PropTypes.object,
 };
 

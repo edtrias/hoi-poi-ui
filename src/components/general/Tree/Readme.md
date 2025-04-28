@@ -1,4 +1,19 @@
-Default:
+# Tree
+
+The Tree component is a hierarchical data representation that allows users to navigate through nested structures of nodes. It provides interactive elements to expand/collapse nodes and select individual items, making it ideal for file systems, categories, or any nested data structure.
+
+## Features
+
+-   Interactive nodes with expand/collapse functionality
+-   Selective node selection with configurable parent selection behavior
+-   Disabled states for non-interactive nodes
+-   Custom component rendering through decorator props
+-   Visual indicators for active and toggled states
+-   Keyboard accessibility for navigation
+
+## Usage
+
+Default nodes:
 
 ```jsx
 const nodes = {
@@ -29,7 +44,10 @@ const nodes = {
                 {
                     name: 'components',
                     id: 5,
-                    children: [{ id: 15, name: 'decorators.js' }, { id: 16, name: 'treebeard.js' }],
+                    children: [
+                        { id: 15, name: 'decorators.js' },
+                        { id: 16, name: 'treebeard.js' },
+                    ],
                 },
                 { id: 17, name: 'index.js' },
             ],
@@ -37,7 +55,10 @@ const nodes = {
         {
             id: 6,
             name: 'themes',
-            children: [{ id: 17, name: 'animations.js' }, { id: 18, name: 'default.js' }],
+            children: [
+                { id: 17, name: 'animations.js' },
+                { id: 18, name: 'default.js' },
+            ],
         },
         { id: 7, name: 'gulpfile.js' },
         { id: 8, name: 'index.js' },
@@ -50,7 +71,7 @@ const nodes = {
 </div>;
 ```
 
-Disabled nodes
+Disabled nodes:
 
 ```jsx
 const nodes = {
@@ -82,7 +103,10 @@ const nodes = {
                 {
                     name: 'components',
                     id: 5,
-                    children: [{ id: 15, name: 'decorators.js' }, { id: 16, name: 'treebeard.js' }],
+                    children: [
+                        { id: 15, name: 'decorators.js' },
+                        { id: 16, name: 'treebeard.js' },
+                    ],
                 },
                 { id: 17, name: 'index.js', isDisabled: true },
             ],
@@ -91,7 +115,10 @@ const nodes = {
             id: 6,
             name: 'themes',
             isDisabled: true,
-            children: [{ id: 17, name: 'animations.js' }, { id: 18, name: 'default.js' }],
+            children: [
+                { id: 17, name: 'animations.js' },
+                { id: 18, name: 'default.js' },
+            ],
         },
         { id: 7, name: 'gulpfile.js' },
         { id: 8, name: 'index.js' },
@@ -135,7 +162,10 @@ const nodes = {
                 {
                     name: 'components',
                     id: 5,
-                    children: [{ id: 15, name: 'decorators.js' }, { id: 16, name: 'treebeard.js' }],
+                    children: [
+                        { id: 15, name: 'decorators.js' },
+                        { id: 16, name: 'treebeard.js' },
+                    ],
                 },
                 { id: 17, name: 'index.js' },
             ],
@@ -143,7 +173,10 @@ const nodes = {
         {
             id: 6,
             name: 'themes',
-            children: [{ id: 17, name: 'animations.js' }, { id: 18, name: 'default.js' }],
+            children: [
+                { id: 17, name: 'animations.js' },
+                { id: 18, name: 'default.js' },
+            ],
         },
         { id: 7, name: 'gulpfile.js' },
         { id: 8, name: 'index.js' },

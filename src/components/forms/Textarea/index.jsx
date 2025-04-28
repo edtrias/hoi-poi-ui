@@ -278,39 +278,57 @@ const Textarea = forwardRef(
 Textarea.overrides = ['root', 'input', 'postComponent', 'textareaComponents'];
 
 Textarea.propTypes = {
+    /** Custom CSS class for styling the component */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Text to be displayed as the textarea's label */
     label: PropTypes.string,
+    /** Determines how the label is positioned relative to the textarea ('horizontal' or 'vertical') */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** When true, the component takes up the full width of its container */
     isFullWidth: PropTypes.bool,
-    /** Info popover */
+    /** Tooltip or informational text displayed in an info icon next to the label */
     hint: PropTypes.string,
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the component, also triggers error styling when present */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    /** Info will be displayed below the component with style changes */
+    /** Informational message displayed below the component */
     info: PropTypes.string,
+    /** When true, displays an asterisk next to the label indicating the field is required */
     isRequired: PropTypes.bool,
+    /** Function called when textarea content changes, with the new value as parameter */
     onChange: PropTypes.func,
+    /** Function called when textarea receives focus */
     onFocus: PropTypes.func,
+    /** Function called when textarea loses focus */
     onBlur: PropTypes.func,
+    /** Function called when Enter key is pressed while textarea is focused */
     onEnter: PropTypes.func,
-    /** Native input id */
+    /** HTML id attribute assigned to the textarea element */
     id: PropTypes.string,
-    /** Native input name */
+    /** HTML name attribute assigned to the textarea element */
     name: PropTypes.string,
+    /** Current content of the textarea */
     value: PropTypes.any,
+    /** Text displayed when the textarea is empty */
     placeholder: PropTypes.string,
+    /** Function called after copying the textarea's content to clipboard */
     onCopy: PropTypes.func,
+    /** When true, prevents user from editing the textarea */
     isReadOnly: PropTypes.bool,
-    /** In order to add a tooltip to lock icon*/
+    /** Tooltip text displayed when hovering over the lock icon when in read-only mode */
     readOnlyTooltip: PropTypes.string,
+    /** When true, displays a copy button to copy the textarea's content to clipboard */
     isCopyable: PropTypes.bool,
+    /** When true, allows the textarea to be manually resized by the user */
     isResizable: PropTypes.bool,
+    /** When true, hides the clear button for emptying the textarea */
     hideClear: PropTypes.bool,
+    /** Function to access the textarea's DOM reference */
     ref: PropTypes.func,
-    /** Minimum text rows visible (initial height of the textarea) */
+    /** Minimum number of rows the textarea should display (sets initial height) */
     minRows: PropTypes.number,
-    /** Maximum rows visible for growing until scroll bars */
+    /** Maximum number of rows the textarea can expand to before scrolling begins */
     maxRows: PropTypes.number,
 };
 

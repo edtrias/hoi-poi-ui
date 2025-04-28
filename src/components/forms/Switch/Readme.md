@@ -1,3 +1,17 @@
+# Switch
+
+The Switch component provides a toggle control for binary states (on/off). It offers a visual slider that the user can toggle to change a setting between two states.
+
+## Features
+
+-   Three size options (small, medium, large)
+-   Support for checked/unchecked states
+-   Hover state visual feedback
+-   Disabled state with different styling for on/off positions
+-   Customizable colors through theming
+
+## Usage
+
 States:
 
 ```jsx

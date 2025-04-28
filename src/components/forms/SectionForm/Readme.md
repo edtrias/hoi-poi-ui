@@ -1,3 +1,19 @@
+# SectionForm
+
+The SectionForm component provides a collapsible section container for organizing form fields. It features an expandable/collapsible header with customizable title, notification badges for active fields, and an optional remove functionality.
+
+## Features
+
+-   Expandable/collapsible content section with smooth animations
+-   Support for both controlled and uncontrolled expansion states
+-   Optional badge to show count of active or filled fields
+-   Custom title component support for advanced header designs
+-   Optional remove functionality with tooltip support
+-   Horizontal or vertical orientation options
+-   Header pre/post component slots for additional content
+
+## Usage
+
 SectionForm Simple
 
 ```jsx

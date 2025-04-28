@@ -133,27 +133,43 @@ const FieldGroup = memo(
 FieldGroup.overrides = ['root', 'rangeWrapper', 'divider', 'dividerText'];
 
 FieldGroup.propTypes = {
+    /** Custom className for styling purposes. Allows applying additional CSS classes to the component. */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements. Enables deep customization of component parts. */
     overrides: PropTypes.object,
+    /** Text to be displayed as the field group's label. Appears above or beside the inputs based on labelMode. */
     label: PropTypes.string,
+    /** Determines how the label is positioned relative to the field group.
+     * 'horizontal' places the label beside the inputs, 'vertical' places it above. */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** Determines how the input fields within the group are arranged.
+     * 'horizontal' arranges fields side by side, 'vertical' stacks them vertically. */
     fieldsMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** When true, the field group will take up 100% of the available width. Useful for responsive layouts. */
     isFullWidth: PropTypes.bool,
-    /** Info popover */
+    /** Tooltip text displayed in an info icon next to the label. Provides additional context for the field group. */
     hint: PropTypes.string,
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the component. Also triggers error styling when present.
+     * Can be a boolean or string - when true, only applies error styling without showing a message. */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    /** Info will be displayed below the component with style changes */
+    /** Informational message displayed below the component. Used for non-error guidance text. */
     info: PropTypes.string,
+    /** When true, displays an asterisk next to the label indicating the field group is required. */
     isRequired: PropTypes.bool,
+    /** Function called when any input value changes within the group.
+     * Receives five parameters: complete value array, changed value, index of changed input, event, and additional info. */
     onChange: PropTypes.func,
+    /** Array of current values for all inputs in the group. Each index corresponds to an input component. */
     value: PropTypes.array,
+    /** Array of input components to be rendered within the group, or a single node.
+     * Each component should accept standard form control props like onChange, value, error, etc. */
     inputs: PropTypes.oneOfType([PropTypes.array, PropTypes.node]),
-    /**An array for individual field customization or and object for apply it to all fields */
+    /** Props to pass to the input components. Can be an array for individual customization or an object to apply to all fields.
+     * For array form, each item corresponds to the input at the same index. */
     inputProps: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    /** Component for overwrite whole divider */
+    /** Custom component to use as divider between inputs. Renders between each input in horizontal mode. */
     divider: PropTypes.any,
-    /** Divider text for enable it */
+    /** Text to use as divider between inputs. Alternative to custom divider component. */
     dividerText: PropTypes.string,
 };
 

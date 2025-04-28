@@ -1,3 +1,18 @@
+# Tabs
+
+The Tabs component provides a way to organize content into multiple sections that can be displayed one at a time. It offers a navigation interface with tab headers that users can click to switch between different content panels.
+
+## Features
+
+-   Horizontal and vertical tab layouts
+-   Support for scrollable tabs when there are many
+-   Closeable tabs with fixed/non-closeable options
+-   Tab preview with popover content
+-   Custom components can be added after the tabs
+-   Keyboard navigation support
+
+## Usage
+
 Default:
 
 ```jsx
@@ -284,6 +299,9 @@ function onSorting(newTabs) {
 
 ---
 
--   root - wrapper
--   [rc-tabs](https://github.com/react-component/tabs)
--   postComponent - post component wrapper
+-   root - main container element for the tabs component
+-   rc-tabs - underlying tabs implementation library
+-   tabWithPopover - container for tabs with hover popover functionality
+-   popover - popover component that appears on tab hover
+-   postComponent - container for additional content that appears after tabs
+-   close - close button icon that appears in editable tabs

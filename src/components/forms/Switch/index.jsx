@@ -95,11 +95,17 @@ function Switch({
 Switch.overrides = ['root', 'Switch'];
 
 Switch.propTypes = {
+    /** Current state of the switch - true for on/checked, false for off/unchecked */
     checked: PropTypes.bool,
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** When true, the switch cannot be toggled and appears grayed out */
     isDisabled: PropTypes.bool,
+    /** Size variant of the switch - affects both width and height */
     size: PropTypes.oneOf(['small', 'medium', 'large']),
+    /** Function called when the switch is toggled with the new state (true/false) as parameter */
     onChange: PropTypes.func,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
 };
 

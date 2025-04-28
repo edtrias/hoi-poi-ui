@@ -155,20 +155,48 @@ Section.defaultProps = {
     overrides: {},
 };
 Section.propTypes = {
+    /** Custom CSS class for styling the root element */
     className: PropTypes.string,
+    /** Title displayed in the section header. Can be a string or custom component */
     title: PropTypes.any,
+    /** Component to render before the title in the header */
     headerPreComponent: PropTypes.any,
+    /** Component to render after the title in the header */
     headerPostComponent: PropTypes.any,
+    /** Determines if the section is initially open when in uncontrolled mode */
     defaultOpen: PropTypes.bool,
+    /** When true, allows the section to be expanded and collapsed */
     isExpandable: PropTypes.bool,
+    /** Number of active fields to display in a badge when the section is collapsed */
     activeFields: PropTypes.number,
+    /** Callback triggered when the section is expanded or collapsed. Makes the component controlled */
     onChange: PropTypes.func,
+    /** Callback triggered when the remove icon is clicked */
+    onRemove: PropTypes.func,
+    /** Controls the open/closed state when in controlled mode */
+    isOpen: PropTypes.bool,
+    /** Object with custom style overrides */
     overrides: PropTypes.shape({
+        /** Styles applied to the root element */
         root: PropTypes.object,
+        /** Styles applied to the header element */
         header: PropTypes.object,
+        /** Styles applied to the title text component */
         Text: PropTypes.object,
+        /** Styles applied to the dropdown icon */
         icon: PropTypes.object,
+        /** Styles applied to the badge notification component */
+        BadgeNotification: PropTypes.object,
+        /** Styles applied to the animation container */
+        'react-animate-height': PropTypes.object,
+        /** Styles applied to the text container */
+        textContainer: PropTypes.object,
+        /** Styles applied to the title container */
+        titleContainer: PropTypes.object,
+        /** Styles applied to the header content container */
+        headerContent: PropTypes.object,
     }),
+    /** Orientation of the section content ('horizontal' or 'vertical') */
     orientation: PropTypes.oneOf(['horizontal', 'vertical']),
 };
 

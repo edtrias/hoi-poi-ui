@@ -1,3 +1,18 @@
+# Advice
+
+The Advice component displays informational messages with different semantic styles based on the content type. It supports collapsible content for long messages, optional icons, dismissible functionality, and various visual styles to indicate different types of advice.
+
+## Features
+
+-   Multiple semantic styles (default, info, success, warning, error)
+-   Collapsible content with automatic detection of long text
+-   Optional icon to emphasize the message type
+-   Title support for more structured content
+-   Dismissible option with custom dismiss text
+-   Fully customizable appearance through overrides
+
+## Usage
+
 Default:
 
 ```jsx

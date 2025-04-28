@@ -1,3 +1,18 @@
+# RadioGroup
+
+RadioGroup is a component that displays a set of mutually exclusive options as radio buttons. It provides a unified interface for selecting one option from multiple choices, with support for different layouts and styling options.
+
+## Features
+
+-   Mutually exclusive selection from multiple options
+-   Vertical or horizontal orientation of radio buttons
+-   Support for read-only state
+-   Customizable label positioning
+-   Full width support for responsive layouts
+-   Custom styling through class overrides
+
+## Usage
+
 Default
 
 ```jsx
@@ -124,18 +139,15 @@ import { useState } from 'react';
 
 let options = [
     {
-        label:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat. ',
+        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat. ',
         value: 'lorem',
     },
     {
-        label:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat.  2',
+        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat.  2',
         value: 'lorem2',
     },
     {
-        label:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat.  3',
+        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in auctor neque, sit amet malesuada massa. Proin mattis vestibulum consequat.  3',
         value: 'lorem3',
     },
 ];

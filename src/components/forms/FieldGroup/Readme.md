@@ -1,3 +1,19 @@
+# FieldGroup
+
+The FieldGroup component allows grouping multiple form components under a single label with a consistent layout. It provides a flexible way to arrange related fields, handle their values collectively, and apply common properties across them.
+
+## Features
+
+-   Group multiple form components in horizontal or vertical arrangements
+-   Apply common properties to all fields or customize each field individually
+-   Supports custom dividers between fields
+-   Maintains consistent label positioning and error handling
+-   Automatic value collection and change propagation
+-   Compatible with all form components (Input, Select, DatePicker, etc.)
+-   Full width support for responsive layouts
+
+## Usage
+
 Text Field:
 
 ```jsx
@@ -199,6 +215,7 @@ const options = [
         value: 'lorem-ipsum-4',
     },
 ];
+
 const [values, setValues] = useState([]);
 
 <div>
@@ -206,9 +223,9 @@ const [values, setValues] = useState([]);
         label="Label"
         inputs={[Input, Select, DatePicker]}
         inputProps={[
-            { placeholder: 'Type' },
-            { placeholder: 'Select one', options },
-            { placeholder: 'Select date' },
+            { placeholder: 'Text' },
+            { placeholder: 'Select', options },
+            { placeholder: 'Date' },
         ]}
         onChange={setValues}
         value={values}
@@ -217,78 +234,17 @@ const [values, setValues] = useState([]);
 </div>;
 ```
 
-```jsx
-import { useState } from 'react';
-import DatePicker from '../../forms/DatePicker';
-
-const [values, setValues] = useState([]);
-
-<div>
-    <FieldGroup
-        label="Label"
-        inputs={[DatePicker, DatePicker]}
-        onChange={setValues}
-        value={values}
-        isFullWidth
-    />
-</div>;
-```
-
-With error:
-
-```jsx
-import { useState } from 'react';
-import Input from '../Input';
-
-const [values, setValues] = useState([]);
-
-<div>
-    <FieldGroup
-        label="Label"
-        inputs={[Input, Input, Input, Input, Input, Input]}
-        onChange={setValues}
-        value={values}
-        isFullWidth
-        error="I am an error"
-    />
-</div>;
-```
-
-With different errors:
-
-```jsx
-import { useState } from 'react';
-import Input from '../Input';
-import Icon from '../../general/Icon';
-
-const [values, setValues] = useState([]);
-
-<div>
-    <FieldGroup
-        label="Label"
-        inputs={[Input, Input, Input]}
-        inputProps={[{ error: 'I am an error' }, { error: null }, { error: 'I am another error' }]}
-        onChange={setValues}
-        value={values}
-        isFullWidth
-        error="I am a general error"
-        divider={<Icon name="arrowRight" />}
-    />
-</div>;
-```
-
 ### Component tree
 
 ---
 
-∫
-
 -   root - root element
--   infor - Info text wrapper
--   error - Error wrapper
--   formControl - Input wrapper excluding label
--   [Label](#/Forms?id=label)
--   inputWrapper - Wrapper around Label and input components
--   rangeWrapper - Wrapper around all fields
--   divider - Divider wrapper
--   dividerText - divider text span
+-   rangeWrapper - Container for all input components
+-   divider - Divider element between inputs
+-   dividerText - Text used as divider
+-   [Label](#/Forms?id=label) - Common label for all inputs
+-   [InputWrapper](#/Forms?id=inputwrapper) - Wrapper for the entire component
+
+```
+
+```

@@ -1,3 +1,19 @@
+# Form
+
+The Form component enables the creation of complex forms using a JSON schema definition. It provides a structured way to render various form fields, group them into sections, and handle form actions like submit, change, focus, and blur.
+
+## Features
+
+-   Schema-based form generation with support for multiple field types
+-   Section organization for grouping related fields
+-   Custom field component integration
+-   Form validation with error handling
+-   Support for field-level and form-level configuration
+-   Multiplier fields for dynamic array inputs
+-   Both horizontal and vertical layout options
+
+## Usage
+
 **Schema:**
 
 ```jsx

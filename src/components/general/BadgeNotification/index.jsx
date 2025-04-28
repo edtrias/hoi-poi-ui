@@ -56,9 +56,13 @@ function BadgeNotification({
 BadgeNotification.overrides = ['root', 'Text'];
 
 BadgeNotification.propTypes = {
+    /** Content to be displayed inside the notification badge, typically a number */
     children: PropTypes.node.isRequired,
+    /** Custom CSS class for styling */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Size of the notification badge, affecting dimensions and font size */
     size: PropTypes.oneOf(['tiny', 'small', 'medium']),
 };
 

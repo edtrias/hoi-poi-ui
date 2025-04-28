@@ -80,13 +80,22 @@ const Code = memo(
 Code.overrides = ['AceEditor'];
 
 Code.propTypes = {
+    /** Custom className for styling purposes. Allows applying additional CSS classes to the component. */
     className: PropTypes.string,
+    /** When true, the code editor will take up 100% of the available width. Useful for responsive layouts. */
     isFullWidth: PropTypes.bool,
+    /** When true, prevents user from editing the code. The editor appears in read-only mode. */
     isReadOnly: PropTypes.bool,
+    /** Function called when the code content changes. Receives the new code content as a parameter. */
     onChange: PropTypes.func,
+    /** Current content of the code editor. The text to be displayed and edited. */
     value: PropTypes.string,
+    /** Minimum number of lines to display in the editor. Default is 20. */
     minLines: PropTypes.number,
+    /** Maximum number of lines to display in the editor. Default is Infinity (no limit). */
     maxLines: PropTypes.number,
+    /** Object with custom style overrides for inner elements. Enables deep customization of component parts. */
+    overrides: PropTypes.object,
 };
 
 export default Code;

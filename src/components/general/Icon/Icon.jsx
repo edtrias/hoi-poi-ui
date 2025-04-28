@@ -1148,12 +1148,39 @@ const Icon = forwardRef(
 Icon.overrides = ['root', 'icon'];
 
 Icon.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Size variant of the icon */
     size: PropTypes.oneOf(['raw', 'small', 'medium', 'large', 'big', 'huge']),
+    /** Name of the icon to display from the icon library */
     name: PropTypes.string,
+    /** Color of the icon (hex, RGB, or color name) */
     color: PropTypes.string,
+    /** Secondary color for dual-color icons */
+    color2: PropTypes.string,
+    /** Function called when the icon is clicked */
     onClick: PropTypes.func,
+    /** Text to show in a tooltip when hovering over the icon */
+    tooltip: PropTypes.node,
+    /** Position of the tooltip relative to the icon */
+    placement: PropTypes.oneOf([
+        'top',
+        'topLeft',
+        'topRight',
+        'bottom',
+        'bottomLeft',
+        'bottomRight',
+        'left',
+        'leftTop',
+        'leftBottom',
+        'right',
+        'rightTop',
+        'rightBottom',
+    ]),
+    /** Name of the icon to display when hovering over the primary icon */
+    nameOver: PropTypes.string,
 };
 
 export default React.memo(Icon);

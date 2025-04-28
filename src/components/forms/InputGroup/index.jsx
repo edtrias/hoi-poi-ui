@@ -171,31 +171,55 @@ function InputGroup({
 InputGroup.overrides = ['root', 'Input', 'formControl', 'inputsControl', 'Link'];
 
 InputGroup.propTypes = {
+    /** Custom className for component */
     className: PropTypes.string,
+    /** Object containing overrides for any part of the component */
     overrides: PropTypes.object,
+    /** Function called when any input's value changes */
     onChange: PropTypes.func,
+    /** Array of input configurations defining labels and field names */
     inputs: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string,
             name: PropTypes.string,
+            placeholder: PropTypes.string,
+            autoFocus: PropTypes.bool,
         }),
     ).isRequired,
     /** Native input id */
     id: PropTypes.string,
     /** Native input name */
     name: PropTypes.string,
-    /** Native input type */
+    /** Input type (text, number, etc) */
     type: PropTypes.string,
+    /** Determines how the label is positioned relative to the input */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
-    /** Info popover */
+    /** Informational text displayed in a popover */
     hint: PropTypes.string,
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the component */
     error: PropTypes.string,
+    /** Determines if the field is required */
     isRequired: PropTypes.bool,
+    /** Makes the input group read-only when true */
     isReadOnly: PropTypes.bool,
-    /** toggle button text for show/hide inputs */
+    /** Text for the link that shows hidden inputs */
     showInputsLabel: PropTypes.string,
+    /** Text for the link that hides secondary inputs */
     hideInputsLabel: PropTypes.string,
+    /** Function called when any input loses focus */
+    onBlur: PropTypes.func,
+    /** Function called when any input gains focus */
+    onFocus: PropTypes.func,
+    /** Function called when Enter key is pressed in any input */
+    onEnter: PropTypes.func,
+    /** Automatically focuses the first input when component mounts */
+    autoFocus: PropTypes.bool,
+    /** Makes the component take up the full width of its container */
+    isFullWidth: PropTypes.bool,
+    /** Placeholder text for inputs that don't specify their own */
+    placeholder: PropTypes.string,
+    /** Current values for all inputs in the group */
+    value: PropTypes.object,
 };
 
 export default React.memo(InputGroup);

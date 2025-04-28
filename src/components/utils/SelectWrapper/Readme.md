@@ -1,3 +1,22 @@
+# SelectWrapper
+
+The SelectWrapper component provides a flexible dropdown selector that can be triggered by any React element. It supports both single and multiple selections, various option types, asynchronous option loading, and extensive customization options.
+
+## Features
+
+-   Compatible with any trigger element (Chip, Button, Icon, Text, etc.)
+-   Single and multiple selection modes
+-   Option grouping for organized dropdowns
+-   Rich option formatting with icons, avatars, labels, and sublabels
+-   Visual indicators for option states (disabled, selected)
+-   Asynchronous option loading for dynamic data
+-   Custom option rendering for complex use cases
+-   Keyboard accessibility for navigation
+-   Configurable dropdown positioning
+-   Width customization for varied content needs
+
+## Usage
+
 No Options
 
 ```jsx

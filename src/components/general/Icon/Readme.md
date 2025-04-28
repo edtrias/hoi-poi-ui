@@ -1,3 +1,19 @@
+# Icon
+
+The Icon component provides a consistent way to display vector icons throughout the application. It includes a comprehensive library of predefined icons for various UI elements and actions.
+
+## Features
+
+-   Extensive collection of premade icons
+-   Multiple size options (small, medium, large, big, huge)
+-   Customizable colors
+-   Support for tooltips
+-   Click events handling
+-   Theming integration
+-   SVG-based for crisp rendering at any resolution
+
+## Usage
+
 ```jsx
 import IconGrid from './IconGrid';
 

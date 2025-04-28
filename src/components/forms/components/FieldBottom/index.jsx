@@ -16,7 +16,6 @@ const Input = memo(
         isFullWidth,
         error,
         info,
-        ...props
     }) => {
         const classes = useClasses(useStyles, classesProp);
         const override = getOverrides(overridesProp, Input.overrides);
@@ -50,10 +49,16 @@ const Input = memo(
 Input.overrides = ['root', 'error', 'info'];
 
 Input.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Error message displayed below the form field, can be a string or boolean */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    /** Informational message displayed below the form field */
     info: PropTypes.string,
+    /** When true, component will take up 100% of the available width */
+    isFullWidth: PropTypes.bool,
 };
 
 export default Input;

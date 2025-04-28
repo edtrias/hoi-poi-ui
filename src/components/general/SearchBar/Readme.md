@@ -1,3 +1,20 @@
+# SearchBar
+
+The SearchBar component provides a versatile search input field with advanced capabilities. It combines search functionality with optional type filtering, allowing users to search within specific categories or across all data. Built on top of the Select component, it supports both single and multiple selections.
+
+## Features
+
+-   Asynchronous search with dynamic loading of options
+-   Optional type selector for categorized searching
+-   Support for single or multiple selection modes
+-   Custom option rendering
+-   Search-as-you-type functionality
+-   Configurable focus and blur behaviors
+-   Automatic highlighting of matched text
+-   Support for default values and placeholder text
+
+## Usage
+
 Default Multi:
 
 ```jsx
@@ -509,8 +526,7 @@ const onBlurSearch = (value) => console.log(value);
 
 ---
 
-All props will pass to principal select
-
--   root - root container
--   typeDivider
--   TypeSelector - secondary select
+-   root - main container element
+-   Select - primary select component for search input
+-   typeDivider - divider between search and type selector
+-   TypeSelector - secondary select component for type filtering

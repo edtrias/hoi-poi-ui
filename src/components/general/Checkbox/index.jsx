@@ -168,14 +168,23 @@ function Checkbox({
 Checkbox.overrides = ['root', 'input', 'svg'];
 
 Checkbox.propTypes = {
+    /** Custom className for the root element */
     className: PropTypes.string,
+    /** Object used to override component styles at different component tree levels */
     overrides: PropTypes.object,
+    /** Whether the checkbox is checked */
     checked: PropTypes.bool,
+    /** Whether the checkbox is in an indeterminate state */
     indeterminate: PropTypes.bool,
+    /** Function called when the checkbox state changes */
     onChange: PropTypes.func,
+    /** Whether the checkbox is disabled */
     isDisabled: PropTypes.bool,
+    /** The color theme of the checkbox */
     color: PropTypes.oneOf(defaultColors),
+    /** The size of the checkbox */
     size: PropTypes.oneOf(['small', 'medium', 'large', 'big', 'huge']),
+    /** Whether to use monotone coloring (same color for outline and fill) */
     isMonotone: PropTypes.bool,
 };
 

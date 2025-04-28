@@ -91,13 +91,21 @@ const ToastContainer = memo(
 ToastContainer.overrides = ['root', 'ToastGroup', 'Toast', 'ToastWrapper'];
 
 ToastContainer.propTypes = {
+    /** Custom className to apply to the container */
     className: PropTypes.string,
+    /** Override the styles of any part of the component. See available override elements in Component Tree section */
     overrides: PropTypes.object,
+    /** Custom React element to display as the toast content */
     content: PropTypes.element,
+    /** Custom close button element to replace the default one */
     closeButton: PropTypes.element,
+    /** Custom className for the close button */
     closeButtonClassName: PropTypes.string,
+    /** When true, clicking on a toast will dismiss it */
     closeOnClick: PropTypes.bool,
+    /** When true, new toasts are added at the top of the stack. When false, they're added at the bottom */
     newestOnTop: PropTypes.bool,
+    /** Position where toasts will appear. Determines the corner/edge of the screen */
     position: PropTypes.oneOf([
         'topLeft',
         'topCenter',
@@ -106,6 +114,7 @@ ToastContainer.propTypes = {
         'bottomCenter',
         'bottomRight',
     ]),
+    /** Components to display above toast groups in specified positions */
     preComponent: PropTypes.shape({
         topLeft: PropTypes.element,
         topCenter: PropTypes.element,
@@ -114,6 +123,7 @@ ToastContainer.propTypes = {
         bottomCenter: PropTypes.element,
         bottomRight: PropTypes.element,
     }),
+    /** Components to display below toast groups in specified positions */
     postComponent: PropTypes.shape({
         topLeft: PropTypes.element,
         topCenter: PropTypes.element,
@@ -122,7 +132,14 @@ ToastContainer.propTypes = {
         bottomCenter: PropTypes.element,
         bottomRight: PropTypes.element,
     }),
+    /** Controls automatic dismissal of toasts. False disables auto-close, a number sets the duration in milliseconds */
     autoClose: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+    /** When true, displays the default close button. When false, no close button is shown unless closeButton prop is provided */
+    useDefaultCloseButton: PropTypes.bool,
+    /** Animation type for toast appearance/disappearance */
+    transition: PropTypes.oneOf(['slide', 'fade']),
+    /** Unique identifier for this container, used when multiple containers exist */
+    containerId: PropTypes.string,
 };
 
 export default ToastContainer;

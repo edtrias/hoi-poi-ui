@@ -96,11 +96,18 @@ const Progress = forwardRef(
     },
 );
 
+Progress.overrides = ['root'];
+
 Progress.propTypes = {
+    /** Custom CSS class for the progress bar container */
     className: PropTypes.string,
+    /** Current value of the progress (must be less than or equal to max) */
     value: PropTypes.number.isRequired,
+    /** Maximum value that represents 100% of the progress */
     max: PropTypes.number,
+    /** Object with style overrides for root element */
     overrides: PropTypes.object,
+    /** Configuration options for animating changes in progress value */
     animation: PropTypes.shape({
         /** Any valid time string that specifies the duration of the animation */
         animationDuration: PropTypes.string,

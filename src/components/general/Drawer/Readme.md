@@ -1,3 +1,18 @@
+# Drawer
+
+The Drawer component provides a sliding panel that appears from the edge of the screen. It's commonly used for navigation menus, detail views, or forms that shouldn't take the user away from the current page.
+
+## Features
+
+-   Slides in from either the left or right side
+-   Configurable width
+-   Optional overlay that can be clicked to close
+-   Support for ESC key to close
+-   Transition events for animations
+-   Can be shown or hidden programmatically
+
+## Usage
+
 Default:
 
 ```jsx

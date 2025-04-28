@@ -15,18 +15,28 @@ const Avatar = memo(({ sources, type = 'round', size = 'medium', ...props }) => 
 });
 
 Avatar.propTypes = {
+    /** Array of avatar sources for displaying multiple avatars together */
     sources: PropTypes.arrayOf(
         PropTypes.shape({
+            /** Image URL for the avatar */
             src: PropTypes.string,
+            /** Fallback image URL if main image fails to load */
             placeholder: PropTypes.string,
+            /** Alternative text for the image, also used to generate initials when no image is available */
             alt: PropTypes.string,
         }),
     ),
+    /** Image URL for a single avatar */
     src: PropTypes.string,
+    /** Fallback image URL if main image fails to load */
     placeholder: PropTypes.string,
+    /** Alternative text for the image, also used to generate initials when no image is available */
     alt: PropTypes.string,
+    /** Icon name to display when no image or initials are available */
     icon: PropTypes.string,
+    /** Avatar shape: 'round' for circular, 'square' for square with slight border radius */
     type: PropTypes.oneOf(['round', 'square']),
+    /** Size of the avatar, affects dimensions */
     size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large', 'big', 'huge']),
 };
 

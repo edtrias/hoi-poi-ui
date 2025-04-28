@@ -167,18 +167,50 @@ const Toast = memo(
 );
 
 Toast.propTypes = {
+    /** Custom className to apply to the toast */
     className: PropTypes.string,
+    /** Override the styles of any part of the component */
     overrides: PropTypes.object,
+    /** Unique identifier for this specific toast instance */
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Container ID where this toast will be rendered */
     containerId: PropTypes.any,
+    /** Custom React element to display as the toast content, replacing the default layout */
     content: PropTypes.element,
+    /** Main message text of the toast */
     text: PropTypes.string,
+    /** Header text displayed at the top of the toast */
     title: PropTypes.string,
+    /** Toast notification type, affects styling and icon */
+    type: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
+    /** Custom icon to display instead of the default type icon */
+    icon: PropTypes.node,
+    /** Custom close button element to replace the default one */
     closeButton: PropTypes.element,
+    /** Custom className for the close button */
     closeButtonClassName: PropTypes.string,
+    /** When true, clicking on the toast will dismiss it */
     closeOnClick: PropTypes.bool,
+    /** Determines toast ordering in the container. When true, new toasts appear at the top */
     newestOnTop: PropTypes.bool,
+    /** Controls automatic dismissal. False disables auto-close, a number sets the duration in milliseconds */
     autoClose: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+    /** When true, displays the default close button. When false, no close button is shown unless closeButton prop is provided */
     useDefaultCloseButton: PropTypes.bool,
+    /** Function called when the toast is clicked */
+    onClick: PropTypes.func,
+    /** Function called when the toast is closed */
+    onClose: PropTypes.func,
+    /** Function called when the link in the toast is clicked */
+    onClickLink: PropTypes.func,
+    /** Text for the clickable link that can be displayed in the toast */
+    linkText: PropTypes.string,
+    /** Animation type for toast appearance/disappearance */
+    transition: PropTypes.oneOf(['slide', 'fade']),
+    /** Whether the toast is currently visible */
+    isActive: PropTypes.bool,
+    /** Function to clear toast after transition */
+    clearDeletedToast: PropTypes.func,
 };
 
 export default Toast;

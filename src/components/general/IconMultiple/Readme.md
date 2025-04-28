@@ -1,3 +1,15 @@
+# IconMultiple
+
+The IconMultiple component displays two icons together in a layered composition, with the second icon positioned at the bottom-right corner of the first icon. This is useful for indicating combined actions or states.
+
+## Features
+
+-   Displays two icons in a layered composition
+-   Supports all icon types from the Icon component
+-   Offers multiple size options (medium, large, big, huge)
+
+## Usage
+
 ```jsx
 import IconMultiple from './index';
 
@@ -8,6 +20,8 @@ import IconMultiple from './index';
     <IconMultiple firstIcon="opportunities" secondIcon="addCircle" size="medium" />
 </div>;
 ```
+
+Various icon combinations:
 
 ```jsx
 import IconMultiple from './index';

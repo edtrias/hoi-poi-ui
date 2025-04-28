@@ -1,3 +1,15 @@
+# Badge
+
+The Badge component displays short pieces of information, status indicators, or categories in a compact format. It visually stands out from surrounding content to draw attention to important labels or states.
+
+## Features
+
+-   Multiple semantic types (default, positive, negative, focus, info, etc.)
+-   Inverted variant with reversed colors
+-   Truncation support with optional tooltip for long text
+
+## Usage
+
 Default:
 
 ```jsx

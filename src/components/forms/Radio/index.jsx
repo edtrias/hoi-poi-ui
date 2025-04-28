@@ -54,10 +54,15 @@ function Radio({
 Radio.overrides = ['root', 'input', 'svg'];
 
 Radio.propTypes = {
+    /** Determines whether the radio button is selected */
     checked: PropTypes.bool,
+    /** Custom CSS class for styling */
     className: PropTypes.string,
+    /** When true, the radio button appears grayed out and doesn't respond to user interaction */
     isDisabled: PropTypes.bool,
+    /** Function called when the radio button is clicked */
     onChange: PropTypes.func,
+    /** Object with custom style overrides for the component parts */
     overrides: PropTypes.object,
 };
 

@@ -1,3 +1,19 @@
+# Table
+
+The Table component provides a lightweight yet flexible way to display tabular data. It supports various formatting options, fixed headers, custom cell rendering, and row-specific styling.
+
+## Features
+
+-   Customizable columns with alignment control
+-   Support for complex cell content (components, not just text)
+-   Optional fixed header for scrollable tables
+-   Row background alternation for better readability
+-   Empty state handling
+-   Custom styling for rows and cells
+-   Row-specific event handlers
+
+## Usage
+
 Default:
 
 ```jsx

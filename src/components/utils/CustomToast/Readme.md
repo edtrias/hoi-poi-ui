@@ -1,3 +1,22 @@
+# CustomToast
+
+The CustomToast component provides a flexible notification system for displaying temporary messages to users. It supports different types of notifications (success, error, warning, info), positioning options, and customization capabilities.
+
+## Features
+
+-   Multiple toast positions (top, bottom, left, right, center)
+-   Toast types with semantic styling (success, error, warning, info)
+-   Customizable auto-close timing
+-   Animation transitions (slide or fade)
+-   Custom content rendering capability
+-   Link integration within toasts
+-   Icon support for visual indicators
+-   Multiple containers for different notification contexts
+-   Pre and post components for enhanced layout control
+-   Programmatic toast creation and dismissal
+
+## Usage
+
 Default ToastContainer:
 
 ```jsx

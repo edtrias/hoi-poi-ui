@@ -1,3 +1,18 @@
+# Stepper
+
+The Stepper component provides a visual indicator of the user's progress through a sequence of steps. It displays a horizontal series of numbered circles connected by lines, with completed steps marked by checkmarks.
+
+## Features
+
+-   Shows progress through a multi-step process
+-   Customizable step labels
+-   Completed steps are visually indicated with checkmarks
+-   Supports both horizontal and vertical label placement
+-   Option to display without labels for a compact view
+-   Interactive steps allowing navigation to previous steps
+
+## Usage
+
 Default:
 
 ```jsx
@@ -108,5 +123,6 @@ function onClick(step) {
 
 ---
 
--   root - wrapper
--   [rc-steps](https://github.com/react-component/steps)
+-   root - main container element
+-   icon - step indicator circle with number or checkmark
+-   rc-steps - underlying library component for steps layout

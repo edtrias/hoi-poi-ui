@@ -74,17 +74,26 @@ function SwitchInput({
 SwitchInput.overrides = ['root', 'Switch', 'overlay', 'overlayLabel'];
 
 SwitchInput.propTypes = {
+    /** Custom CSS class for styling */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Text to be displayed as the input's label */
     label: PropTypes.string,
+    /** Determines how the label is positioned relative to the switch ('horizontal' or 'vertical') */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** Current state of the switch (true for on, false for off) */
     value: PropTypes.any,
+    /** Function called when the switch is toggled, receives the new value as parameter */
     onChange: PropTypes.func,
-    /** Info popover */
+    /** Tooltip or informational text displayed in an info icon next to the label */
     hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the component, also triggers error styling when present */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    /** When true, prevents user from toggling the switch */
     isReadOnly: PropTypes.bool,
+    /** When true, the component takes up the full width of its container */
+    isFullWidth: PropTypes.bool,
 };
 
 export default React.memo(SwitchInput);

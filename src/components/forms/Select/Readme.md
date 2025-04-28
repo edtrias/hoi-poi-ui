@@ -1,3 +1,22 @@
+# Select
+
+The Select component provides a customizable dropdown selection interface that supports single and multiple selections, grouping, searching/filtering, custom styling, and various interactive states.
+
+## Features
+
+-   Single and multiple selection modes
+-   Option grouping with headers
+-   Searchable/filterable dropdown
+-   Customizable option rendering
+-   Loading states with async loading support
+-   Clear selection functionality
+-   Read-only state
+-   Error and info messaging
+-   Custom action buttons
+-   Various display modes (with/without chips)
+
+## Usage
+
 No Options:
 
 ```jsx

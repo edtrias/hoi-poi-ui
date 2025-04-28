@@ -1,4 +1,5 @@
 import React, { memo, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { getOverrides, useClasses } from '../../../utils/overrides';
 
@@ -25,6 +26,15 @@ const Divider = ({
     );
 
     return <div {...rootProps} {...override.root} />;
+};
+
+Divider.overrides = ['root'];
+
+Divider.propTypes = {
+    /** Custom CSS class for styling the divider */
+    className: PropTypes.string,
+    /** Object with custom style overrides for the root element */
+    overrides: PropTypes.object,
 };
 
 export default memo(Divider);

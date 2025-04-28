@@ -1,3 +1,17 @@
+# Checkbox
+
+Checkbox is a component that allows users to select options in a boolean format (checked/unchecked) or in an indeterminate state. It supports various colors, sizes, and states including disabled.
+
+## Features
+
+-   Three states: unchecked, checked, and indeterminate
+-   Customizable colors with semantic meaning
+-   Various size options
+-   Support for disabled state
+-   Monotone color option for consistent styling
+
+## Usage
+
 States default:
 
 ```jsx

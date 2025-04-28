@@ -245,39 +245,57 @@ function DatePicker({
 DatePicker.overrides = ['root', 'input', 'flatpickr', 'flatpickrOptions'];
 
 DatePicker.propTypes = {
+    /** Custom className for styling purposes */
     className: PropTypes.string,
+    /** Object with custom style overrides for inner elements */
     overrides: PropTypes.object,
+    /** Function called when date selection changes with selected date as parameter */
     onChange: PropTypes.func,
+    /** Function called when the input receives focus */
     onFocus: PropTypes.func,
+    /** Function called when the input loses focus */
     onBlur: PropTypes.func,
+    /** Function called when Enter key is pressed while input is focused */
     onEnter: PropTypes.func,
-    /** Native input id */
+    /** HTML id attribute assigned to the input element */
     id: PropTypes.string,
-    /** Native input name */
+    /** HTML name attribute assigned to the input element */
     name: PropTypes.string,
+    /** Current selected date (can be Date object, ISO string, or formatted string) */
     value: PropTypes.any,
+    /** Text to be displayed as the input's label */
     label: PropTypes.string,
+    /** Determines how the label is positioned relative to the input */
     labelMode: PropTypes.oneOf(['horizontal', 'vertical']),
+    /** When true, component will take up 100% of the available width */
     isFullWidth: PropTypes.bool,
-    /** Info popover */
+    /** Tooltip text displayed in an info icon next to the label */
     hint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    /** Error will be displayed below the component with style changes */
+    /** Error message displayed below the component, also triggers error styling when present */
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    /** Info will be displayed below the component with style changes */
+    /** Informational message displayed below the component */
     info: PropTypes.string,
+    /** When true, displays an asterisk next to the label indicating the field is required */
     isRequired: PropTypes.bool,
+    /** When true, prevents user from changing the input value */
     isReadOnly: PropTypes.bool,
+    /** Determines the format of the onChange callback value ('object' returns Date object, 'string' returns formatted string) */
     outputType: PropTypes.oneOf(['object', 'string']),
+    /** Text displayed when no date is selected */
     placeholder: PropTypes.string,
+    /** Language code used for localization (e.g., 'en', 'es', 'fr') */
     lang: PropTypes.string,
-    /** default to flatpickr format tokens */
+    /** Date format string using flatpickr's tokens (e.g., 'Y-m-d' for YYYY-MM-DD) */
     dateFormat: PropTypes.string,
-    /** Custom formatDate function */
+    /** Custom function to format displayed date (receives Date object and format string) */
     formatDate: PropTypes.func,
-    /** Custom text for Today's button */
+    /** Custom text for the "Today" button in calendar */
     calendarButtonLabel: PropTypes.string,
+    /** Earliest selectable date */
     minDate: PropTypes.instanceOf(Date),
+    /** Latest selectable date */
     maxDate: PropTypes.instanceOf(Date),
+    /** Custom component to replace the default input element */
     customComponent: PropTypes.elementType,
 };
 
